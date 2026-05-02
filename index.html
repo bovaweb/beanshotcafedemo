@@ -24,9 +24,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--black);
     color: var(--cream);
@@ -38,47 +36,44 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     display: flex; justify-content: space-between; align-items: center;
-    padding: 18px 48px;
-    background: rgba(10,7,5,0.92);
-    backdrop-filter: blur(12px);
+    padding: 12px 48px;
+    background: rgba(10,7,5,0.96); backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(200,131,42,0.15);
-    transition: all .3s ease;
   }
   .nav-logo {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; font-weight: 900;
-    color: var(--gold); letter-spacing: 1px;
-    text-decoration: none;
+    font-size: 1.6rem; font-weight: 900;
+    color: var(--gold); letter-spacing: 2px;
+    text-decoration: none; display: flex; align-items: center; gap: 10px;
   }
-  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
   .nav-links a {
     color: var(--cream); text-decoration: none;
-    font-size: .85rem; font-weight: 500; letter-spacing: 1.5px;
+    font-size: .8rem; font-weight: 600; letter-spacing: 1.5px;
     text-transform: uppercase; transition: color .2s;
   }
   .nav-links a:hover { color: var(--gold); }
   .nav-book {
     background: var(--amber); color: var(--black) !important;
     padding: 10px 24px; border-radius: 2px;
-    font-weight: 600 !important; transition: background .2s !important;
+    font-weight: 700; font-size: .8rem; letter-spacing: 1px; text-transform: uppercase;
+    transition: background .2s; text-decoration: none;
   }
-  .nav-book:hover { background: var(--gold) !important; }
+  .nav-book:hover { background: var(--gold); }
 
   /* ── HERO ── */
   #hero {
     min-height: 100vh;
     background: var(--black);
     display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
+    position: relative; overflow: hidden; padding-top: 80px;
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background: radial-gradient(circle at 70% 50%, rgba(107,63,42,0.15) 0%, transparent 40%),
-                radial-gradient(circle at 20% 80%, rgba(200,131,42,0.1) 0%, transparent 40%);
-  }
-  .hero-grain {
-    position: absolute; inset: 0; opacity: .04;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(107,63,42,0.35) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(200,131,42,0.12) 0%, transparent 60%),
+      linear-gradient(135deg, #0a0705 0%, #1a1008 50%, #0f0905 100%);
   }
   .hero-circle {
     position: absolute; right: -120px; top: 50%; transform: translateY(-50%);
@@ -86,28 +81,22 @@
     border: 1px solid rgba(200,131,42,0.08);
     animation: spin 30s linear infinite;
   }
-  .hero-circle::before {
-    content: ''; position: absolute; inset: 40px; border-radius: 50%;
-    border: 1px solid rgba(200,131,42,0.05);
-  }
   @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
 
   .hero-content {
     position: relative; z-index: 2;
-    max-width: 1100px; margin: 0 auto;
-    padding: 120px 48px 80px;
+    max-width: 1200px; margin: 0 auto;
+    padding: 60px 48px;
     display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
   }
   .hero-tag {
     display: inline-flex; align-items: center; gap: 8px;
     background: rgba(200,131,42,0.12); border: 1px solid rgba(200,131,42,0.3);
-    padding: 6px 16px; border-radius: 100px;
-    font-size: .75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    padding: 8px 18px; border-radius: 100px;
+    font-size: .75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
     color: var(--amber); margin-bottom: 24px;
     animation: fadeUp .8s ease both;
   }
-  .hero-tag::before { content: '●'; font-size: .5rem; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
   .hero-h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.8rem, 5vw, 4.2rem);
@@ -117,18 +106,17 @@
   }
   .hero-h1 em { color: var(--gold); font-style: italic; }
   .hero-sub {
-    margin-top: 20px; font-size: 1.1rem; line-height: 1.7;
-    color: var(--text-muted); max-width: 460px;
+    margin-top: 24px; font-size: 1.05rem; line-height: 1.8;
+    color: var(--text-muted); max-width: 480px;
     animation: fadeUp .8s .2s ease both;
   }
   .hero-urgency {
-    margin-top: 16px; display: inline-flex; align-items: center; gap: 8px;
-    color: #e05c3a; font-size: .82rem; font-weight: 600; letter-spacing: 1px;
+    margin-top: 18px; display: inline-flex; align-items: center; gap: 8px;
+    color: #e05c3a; font-size: .85rem; font-weight: 700;
     animation: fadeUp .8s .25s ease both;
   }
-  .hero-urgency::before { content: '⏰'; }
   .hero-ctas {
-    margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap;
+    margin-top: 40px; display: flex; gap: 18px; flex-wrap: wrap;
     animation: fadeUp .8s .3s ease both;
   }
   .btn-primary {
@@ -136,7 +124,7 @@
     background: var(--amber); color: var(--black);
     padding: 16px 32px; border-radius: 3px;
     font-weight: 700; font-size: .9rem; letter-spacing: 1px; text-transform: uppercase;
-    text-decoration: none; transition: all .2s;
+    text-decoration: none; transition: all .2s; border: none; cursor: pointer;
     box-shadow: 0 0 30px rgba(200,131,42,0.3);
   }
   .btn-primary:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 40px rgba(200,131,42,0.4); }
@@ -148,44 +136,30 @@
     text-decoration: none; transition: all .2s;
   }
   .btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-  .hero-stats {
-    display: flex; gap: 32px; margin-top: 48px;
-    animation: fadeUp .8s .4s ease both;
-  }
-  .stat { text-align: center; }
-  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: var(--gold); line-height: 1; }
-  .stat-label { font-size: .72rem; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; }
 
-  /* Hero right visual */
-  .hero-visual {
-    display: flex; flex-direction: column; align-items: center; gap: 16px;
-    animation: fadeUp .8s .2s ease both;
-  }
+  .hero-visual { display: flex; flex-direction: column; align-items: center; gap: 24px; animation: fadeUp .8s .2s ease both; }
   .hero-badge {
     background: linear-gradient(135deg, var(--brown) 0%, #2a1a10 100%);
     border: 1px solid rgba(200,131,42,0.2);
-    border-radius: 50%; width: 280px; height: 280px;
+    border-radius: 8px; width: 320px; padding: 32px;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center; padding: 32px;
+    text-align: center;
     box-shadow: 0 0 60px rgba(107,63,42,0.4), inset 0 0 40px rgba(0,0,0,0.3);
   }
-  .hero-badge-icon { font-size: 3.5rem; margin-bottom: 8px; }
-  .hero-badge-text { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--gold); line-height: 1.3; }
-  .hero-badge-sub { font-size: .7rem; color: var(--text-muted); margin-top: 4px; letter-spacing: 1px; }
-  .hero-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-  .pill {
-    background: rgba(200,131,42,0.08); border: 1px solid rgba(200,131,42,0.2);
-    padding: 8px 16px; border-radius: 100px;
-    font-size: .78rem; color: var(--cream); font-weight: 500;
-  }
+  .hero-badge-icon { font-size: 4rem; margin-bottom: 16px; }
+  .hero-badge-text { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--gold); line-height: 1.3; }
+  .hero-badge-sub { font-size: .72rem; color: var(--text-muted); margin-top: 6px; letter-spacing: 1px; }
 
   @keyframes fadeUp { from { opacity:0; transform:translateY(30px) } to { opacity:1; transform:none } }
 
   /* ── SECTION BASE ── */
-  section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
+  .content-section {
+    padding: 100px 48px;
+    max-width: 1200px; margin: 0 auto;
+  }
   .section-label {
     display: inline-flex; align-items: center; gap: 8px;
-    font-size: .72rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    font-size: .72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
     color: var(--amber); margin-bottom: 16px;
   }
   .section-label::before, .section-label::after { content: '—'; opacity: .5; }
@@ -195,26 +169,22 @@
     color: var(--white); line-height: 1.1; margin-bottom: 20px;
   }
   h2.section-title em { color: var(--gold); font-style: italic; }
-  .section-desc { color: var(--text-muted); font-size: 1rem; line-height: 1.8; max-width: 540px; }
+  .section-desc { color: var(--text-muted); font-size: .95rem; line-height: 1.8; max-width: 540px; margin-bottom: 40px; }
 
-  /* ── DIVIDER ── */
   .divider {
     width: 100%; height: 1px;
     background: linear-gradient(90deg, transparent, rgba(200,131,42,0.2), transparent);
-    margin: 0;
+    margin: 80px 0 0;
   }
 
   /* ── SIGNATURE ── */
-  #signature { background: var(--dark); padding: 100px 0; max-width: none; }
-  .sig-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
-  .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 60px; }
+  .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 50px; }
   .sig-card {
     background: linear-gradient(135deg, var(--brown) 0%, #1f1309 100%);
     border: 1px solid rgba(200,131,42,0.15);
-    border-radius: 4px; padding: 48px;
+    border-radius: 6px; padding: 40px;
     position: relative; overflow: hidden;
     transition: transform .3s, box-shadow .3s;
-    cursor: default;
   }
   .sig-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
   .sig-card::before {
@@ -231,197 +201,66 @@
   .sig-badge {
     position: absolute; top: 24px; right: 24px;
     background: var(--amber); color: var(--black);
-    padding: 4px 12px; border-radius: 100px;
-    font-size: .7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 3px;
+    font-size: .68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
   }
 
-  /* ── MENU PREVIEW ── */
-  #menu-preview { background: var(--black); }
-  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
-  .menu-card {
-    background: var(--dark);
-    border: 1px solid rgba(200,131,42,0.1);
-    border-radius: 4px; overflow: hidden;
-    transition: transform .3s, border-color .3s;
-  }
-  .menu-card:hover { transform: translateY(-4px); border-color: rgba(200,131,42,0.3); }
-  .menu-card-img {
-    height: 180px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 4rem;
-    background: linear-gradient(135deg, var(--brown) 0%, #1a0f07 100%);
-  }
-  .menu-card-body { padding: 20px; }
-  .menu-card-tag {
-    font-size: .65rem; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--amber); font-weight: 600; margin-bottom: 8px;
-  }
-  .menu-card-name {
-    font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
-    color: var(--white); margin-bottom: 8px;
-  }
-  .menu-card-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
-  .menu-card-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--gold); }
-  .menu-cta { text-align: center; margin-top: 48px; }
+  /* ── MENU SECTION ── */
+  .menu-section { padding: 100px 48px; background: var(--dark); max-width: none; margin: 80px 0 0; }
+  .menu-inner { max-width: 1200px; margin: 0 auto; }
 
-  /* ── GALLERY ── */
-  #gallery { background: var(--dark); max-width: none; padding: 100px 0; }
-  .gallery-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 200px);
-    gap: 12px; margin-top: 60px;
-  }
-  .gallery-item {
-    border-radius: 4px; overflow: hidden; position: relative;
-    background: var(--brown);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: transform .3s;
-  }
-  .gallery-item:hover { transform: scale(1.02); z-index: 2; }
-  .gallery-item:nth-child(1) { grid-column: 1/3; grid-row: 1/3; }
-  .gallery-item:nth-child(4) { grid-column: 4; grid-row: 1/3; }
-  .gallery-emoji { font-size: 3rem; opacity: .6; }
-  .gallery-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(10,7,5,0.8) 0%, transparent 60%);
-    opacity: 0; transition: opacity .3s;
-    display: flex; align-items: flex-end; padding: 20px;
-  }
-  .gallery-item:hover .gallery-overlay { opacity: 1; }
-  .gallery-overlay-text { font-size: .8rem; color: var(--cream); font-weight: 500; }
-  .gallery-item-bg { position: absolute; inset: 0; background: linear-gradient(135deg, var(--brown), #1a0f07); }
-  .gallery-item-decor {
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 8px;
-  }
-
-  /* ── SOCIAL PROOF ── */
-  #reviews { background: var(--black); }
-  .rating-bar {
-    display: flex; align-items: center; gap: 24px; margin-bottom: 60px;
-    padding: 32px; background: var(--dark);
-    border: 1px solid rgba(200,131,42,0.15); border-radius: 4px;
-  }
-  .rating-big { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: var(--gold); line-height: 1; }
-  .rating-stars { font-size: 1.4rem; margin-bottom: 4px; }
-  .rating-count { font-size: .85rem; color: var(--text-muted); }
-  .rating-platforms { display: flex; gap: 16px; margin-left: auto; }
-  .platform-badge {
-    background: rgba(200,131,42,0.1); border: 1px solid rgba(200,131,42,0.2);
-    padding: 12px 20px; border-radius: 4px; text-align: center;
-  }
-  .platform-name { font-size: .7rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); font-weight: 600; }
-  .platform-rating { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--white); }
-  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .review-card {
-    background: var(--dark); border: 1px solid rgba(200,131,42,0.1);
-    border-radius: 4px; padding: 28px; transition: border-color .3s;
-  }
-  .review-card:hover { border-color: rgba(200,131,42,0.3); }
-  .review-stars { font-size: 1rem; margin-bottom: 16px; }
-  .review-text { font-size: .92rem; color: var(--cream); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
-  .review-text::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--amber); line-height: 0; vertical-align: -0.5rem; margin-right: 4px; }
-  .reviewer { display: flex; align-items: center; gap: 12px; }
-  .reviewer-avatar {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: var(--coffee); display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-  }
-  .reviewer-name { font-weight: 600; font-size: .88rem; color: var(--white); }
-  .reviewer-platform { font-size: .72rem; color: var(--text-muted); }
-  .tag-cloud { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 40px; }
-  .tag {
-    background: rgba(200,131,42,0.08); border: 1px solid rgba(200,131,42,0.2);
-    padding: 8px 16px; border-radius: 100px;
-    font-size: .78rem; color: var(--cream);
-  }
-  .tag::before { content: '#'; color: var(--amber); margin-right: 2px; }
-
-  /* ── FULL MENU SECTION ── */
-  #full-menu { background: var(--black); }
-  
-  .menu-hero {
-    padding: 120px 48px 60px;
-    text-align: center;
-    background: linear-gradient(180deg, #120a04 0%, var(--black) 100%);
-    border-bottom: 1px solid rgba(200,131,42,0.1);
-    max-width: none;
-  }
-  .menu-hero-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(200,131,42,0.1); border: 1px solid rgba(200,131,42,0.3);
-    padding: 6px 16px; border-radius: 100px;
-    font-size: .72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--amber); margin-bottom: 20px;
-  }
-  .menu-hero h1 {
-    font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 16px;
-  }
-  .menu-hero h1 em { color: var(--gold); font-style: italic; }
-  .menu-hero p { color: var(--text-muted); font-size: .95rem; max-width: 500px; margin: 0 auto 32px; line-height: 1.7; }
-  .menu-hero-note {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: .78rem; color: var(--text-muted);
-    background: var(--dark); border: 1px solid rgba(200,131,42,0.1);
-    padding: 10px 20px; border-radius: 100px;
-  }
-
-  /* STICKY MENU NAV */
-  .menu-nav {
+  /* MENU STICKY NAV */
+  .menu-nav-sticky {
     position: sticky; top: 60px; z-index: 900;
     background: rgba(10,7,5,0.96); backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(200,131,42,0.1);
-    overflow-x: auto; white-space: nowrap;
-    max-width: none;
+    overflow-x: auto;
+    margin: 0 -48px 40px;
+    padding: 0 48px;
   }
-  .menu-nav-inner {
-    display: flex; gap: 0; max-width: 1100px; margin: 0 auto;
-    padding: 0 24px;
-  }
+  .menu-nav-sticky-inner { display: flex; gap: 0; }
   .menu-nav-btn {
     display: inline-flex; align-items: center; gap: 6px;
-    padding: 16px 20px; font-size: .8rem; font-weight: 600;
+    padding: 14px 20px; font-size: .78rem; font-weight: 700;
     letter-spacing: 1px; text-transform: uppercase;
     color: var(--text-muted); border-bottom: 2px solid transparent;
-    cursor: pointer; transition: all .2s; background: none; border-top: none; border-left: none; border-right: none;
+    cursor: pointer; transition: all .2s; background: none; border: none;
     text-decoration: none; white-space: nowrap;
   }
   .menu-nav-btn:hover, .menu-nav-btn.active { color: var(--amber); border-bottom-color: var(--amber); }
 
-  /* CONTENT */
-  .menu-content { max-width: 1100px; margin: 0 auto; padding: 0 48px 100px; }
-
-  /* CATEGORY SECTION */
-  .cat-section {
-    padding: 60px 0 0;
-    scroll-margin-top: 120px;
-  }
+  /* MENU CATEGORY */
+  .menu-cat { margin-bottom: 60px; scroll-margin-top: 140px; }
   .cat-header { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; }
   .cat-icon { font-size: 2.5rem; }
   .cat-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--white); }
-  .cat-sub { font-size: .82rem; color: var(--text-muted); margin-top: 4px; }
   .cat-divider { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(200,131,42,0.3), transparent); }
 
-  /* SUB CATEGORY */
-  .sub-cat { margin-bottom: 32px; }
-  .sub-cat-label {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: .7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-    padding: 6px 16px; border-radius: 2px; margin-bottom: 20px;
+  /* MENU IMAGE GRID */
+  .menu-image-display {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 40px;
+    border-radius: 8px; overflow: hidden;
   }
-  .sub-cat-label.veg { background: rgba(45,138,45,0.15); color: #5db85d; border: 1px solid rgba(45,138,45,0.3); }
-  .sub-cat-label.nonveg { background: rgba(192,57,43,0.15); color: #e07060; border: 1px solid rgba(192,57,43,0.3); }
-  .sub-cat-label.all { background: rgba(200,131,42,0.1); color: var(--amber); border: 1px solid rgba(200,131,42,0.2); }
+  .menu-image-display.full-width { grid-template-columns: 1fr; }
+  .menu-img-container {
+    background: var(--brown); border: 1px solid rgba(200,131,42,0.1);
+    border-radius: 6px; overflow: hidden;
+    position: relative; max-height: 400px;
+  }
+  .menu-img-container img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .menu-img-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(10,7,5,0.95), transparent);
+    padding: 20px 16px 12px;
+    font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700;
+    color: var(--gold);
+  }
 
-  /* MENU ITEMS GRID */
+  /* ITEMS GRID */
   .items-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
   .items-grid.single { grid-template-columns: 1fr; }
-  .items-grid.three { grid-template-columns: repeat(3, 1fr); }
-
   .menu-item {
     display: flex; justify-content: space-between; align-items: flex-start;
     padding: 16px 20px;
@@ -433,49 +272,21 @@
     width: 14px; height: 14px; border-radius: 2px; min-width: 14px;
     border: 1.5px solid; margin-top: 3px; margin-right: 10px; position: relative;
   }
-  .item-dot::after {
-    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-    width: 6px; height: 6px; border-radius: 50%;
-  }
   .item-dot.v { border-color: var(--veg); }
-  .item-dot.v::after { background: var(--veg); }
+  .item-dot.v::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 6px; height: 6px; border-radius: 50%; background: var(--veg); }
   .item-dot.nv { border-color: var(--nonveg); }
-  .item-dot.nv::after { background: var(--nonveg); }
+  .item-dot.nv::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 6px; height: 6px; border-radius: 50%; background: var(--nonveg); }
   .item-left { flex: 1; }
   .item-name { font-weight: 600; font-size: .92rem; color: var(--white); margin-bottom: 4px; }
   .item-desc { font-size: .78rem; color: var(--text-muted); line-height: 1.5; }
-  .item-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--gold); min-width: 60px; text-align: right; white-space: nowrap; }
-  .item-badge {
-    display: inline-block; background: var(--amber); color: var(--black);
-    padding: 1px 6px; border-radius: 2px; font-size: .6rem; font-weight: 700;
-    letter-spacing: 1px; text-transform: uppercase; margin-left: 6px; vertical-align: middle;
-  }
-
-  /* ADD-ONS BOX */
-  .addons-box {
-    background: rgba(200,131,42,0.06); border: 1px solid rgba(200,131,42,0.15);
-    border-radius: 4px; padding: 20px; margin-top: 24px;
-  }
-  .addons-title { font-size: .72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; }
-  .addons-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-  .addon-pill {
-    background: rgba(200,131,42,0.08); border: 1px solid rgba(200,131,42,0.15);
-    padding: 6px 14px; border-radius: 100px; font-size: .78rem; color: var(--cream);
-    display: inline-flex; gap: 8px; align-items: center;
-  }
-  .addon-pill span { color: var(--gold); font-family: 'Bebas Neue', sans-serif; font-size: .9rem; }
-
-  /* NOTE BOX */
-  .note-box {
-    background: rgba(255,255,255,0.03); border-left: 3px solid var(--amber);
-    padding: 12px 16px; margin-top: 12px; font-size: .8rem; color: var(--text-muted); line-height: 1.6;
-  }
+  .item-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--gold); min-width: 80px; text-align: right; white-space: nowrap; }
+  .item-badge { display: inline-block; background: var(--amber); color: var(--black); padding: 2px 8px; border-radius: 2px; font-size: .62rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-left: 6px; vertical-align: middle; }
 
   /* SPECIAL ITEM */
   .special-item {
     background: linear-gradient(135deg, var(--brown) 0%, #1f1309 100%);
     border: 1px solid rgba(200,131,42,0.3);
-    border-radius: 4px; padding: 24px; margin-bottom: 16px;
+    border-radius: 6px; padding: 28px; margin-bottom: 16px;
     position: relative; overflow: hidden;
   }
   .special-item::before {
@@ -483,56 +294,53 @@
     width: 100px; height: 100px;
     background: radial-gradient(circle, rgba(200,131,42,0.2) 0%, transparent 70%);
   }
-  .special-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
-  .special-desc { font-size: .85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }
-  .special-prices { display: flex; gap: 16px; flex-wrap: wrap; }
-  .special-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--gold); }
-  .special-price small { font-family: 'DM Sans', sans-serif; font-size: .7rem; color: var(--text-muted); font-weight: 400; display: block; }
-  .special-badge { position: absolute; top: 16px; right: 16px; background: var(--amber); color: var(--black); padding: 4px 12px; border-radius: 100px; font-size: .68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .special-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 8px; position: relative; z-index: 1; }
+  .special-desc { font-size: .85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; position: relative; z-index: 1; }
+  .special-badge { position: absolute; top: 16px; right: 16px; background: var(--amber); color: var(--black); padding: 4px 12px; border-radius: 3px; font-size: .68rem; font-weight: 700; text-transform: uppercase; }
 
-  /* CTA STRIP */
-  .cta-strip {
-    background: linear-gradient(135deg, var(--brown) 0%, #1a0f07 100%);
-    border: 1px solid rgba(200,131,42,0.2);
-    border-radius: 4px; padding: 40px;
-    text-align: center; margin: 60px 0 0;
+  /* ── REVIEWS ── */
+  .reviews-section { padding: 100px 48px; background: var(--black); max-width: none; }
+  .reviews-inner { max-width: 1200px; margin: 0 auto; }
+  .rating-bar {
+    display: flex; align-items: center; gap: 32px; margin-bottom: 60px;
+    padding: 32px; background: var(--dark);
+    border: 1px solid rgba(200,131,42,0.15); border-radius: 6px;
   }
-  .cta-strip h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
-  .cta-strip p { color: var(--text-muted); margin-bottom: 28px; }
-  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-  .btn-wa {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: #25d366; color: #000;
-    padding: 14px 28px; border-radius: 3px;
-    font-weight: 700; font-size: .88rem;
-    text-decoration: none; transition: all .2s;
+  .rating-big { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: var(--gold); line-height: 1; }
+  .rating-stars { font-size: 1.5rem; margin-bottom: 6px; }
+  .rating-count { font-size: .88rem; color: var(--text-muted); }
+  .rating-platforms { display: flex; gap: 16px; margin-left: auto; }
+  .platform-badge {
+    background: rgba(200,131,42,0.1); border: 1px solid rgba(200,131,42,0.2);
+    padding: 12px 20px; border-radius: 4px; text-align: center;
   }
-  .btn-wa:hover { background: #20c05a; transform: translateY(-2px); }
-  .btn-amber {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--amber); color: var(--black);
-    padding: 14px 28px; border-radius: 3px;
-    font-weight: 700; font-size: .88rem;
-    text-decoration: none; transition: all .2s;
+  .platform-name { font-size: .7rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); font-weight: 600; }
+  .platform-rating { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--white); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+  .review-card {
+    background: var(--dark); border: 1px solid rgba(200,131,42,0.1);
+    border-radius: 6px; padding: 28px; transition: border-color .3s;
   }
-  .btn-amber:hover { background: var(--gold); transform: translateY(-2px); }
-  .btn-outline {
-    display: inline-flex; align-items: center; gap: 8px;
-    border: 1.5px solid rgba(245,230,200,0.25); color: var(--cream);
-    padding: 14px 28px; border-radius: 3px;
-    font-weight: 600; font-size: .88rem;
-    text-decoration: none; transition: all .2s;
-  }
-  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .review-card:hover { border-color: rgba(200,131,42,0.3); }
+  .review-stars { font-size: 1rem; margin-bottom: 16px; }
+  .review-text { font-size: .92rem; color: var(--cream); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+  .review-text::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--amber); line-height: 0; vertical-align: -0.5rem; margin-right: 4px; }
+  .reviewer { display: flex; align-items: center; gap: 12px; }
+  .reviewer-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--coffee); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+  .reviewer-name { font-weight: 600; font-size: .88rem; color: var(--white); }
+  .reviewer-platform { font-size: .72rem; color: var(--text-muted); }
+  .tag-cloud { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 40px; }
+  .tag { background: rgba(200,131,42,0.08); border: 1px solid rgba(200,131,42,0.2); padding: 8px 16px; border-radius: 100px; font-size: .78rem; color: var(--cream); }
+  .tag::before { content: '#'; color: var(--amber); margin-right: 2px; }
 
   /* ── BOOKING ── */
-  #booking { background: var(--dark); max-width: none; padding: 100px 0; }
-  .booking-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+  .booking-section { padding: 100px 48px; background: var(--dark); max-width: none; }
+  .booking-inner { max-width: 1200px; margin: 0 auto; }
   .booking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-top: 60px; }
   .booking-wa {
     background: linear-gradient(135deg, #0d3320 0%, #051a10 100%);
     border: 1px solid rgba(37,211,102,0.25);
-    border-radius: 4px; padding: 48px;
+    border-radius: 6px; padding: 48px;
     text-align: center; position: relative; overflow: hidden;
   }
   .booking-wa::before {
@@ -543,16 +351,23 @@
   .wa-icon { font-size: 4rem; margin-bottom: 20px; display: block; }
   .wa-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
   .wa-desc { font-size: .92rem; color: #a0bfa8; line-height: 1.7; margin-bottom: 32px; }
-  .wa-note { margin-top: 16px; font-size: .78rem; color: #6a8f72; }
-  .wa-phones { display: flex; gap: 12px; margin-top: 24px; }
-  .wa-phone {
-    flex: 1; background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.15);
-    padding: 12px; border-radius: 4px; text-align: center;
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #25d366; color: #000;
+    padding: 18px 36px; border-radius: 3px;
+    font-weight: 700; font-size: .95rem; letter-spacing: .5px;
+    text-decoration: none; transition: all .2s;
+    box-shadow: 0 0 30px rgba(37,211,102,0.3);
+    width: 100%; justify-content: center;
+    border: none; cursor: pointer;
   }
+  .btn-wa:hover { background: #20c05a; transform: translateY(-2px); }
+  .wa-phones { display: flex; gap: 12px; margin-top: 24px; }
+  .wa-phone { flex: 1; background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.15); padding: 12px; border-radius: 4px; text-align: center; }
   .wa-phone-label { font-size: .65rem; letter-spacing: 1.5px; text-transform: uppercase; color: #6a8f72; margin-bottom: 4px; }
   .wa-phone-num { font-size: .88rem; color: #a0dfa8; font-weight: 600; }
 
-  .booking-form { }
+  .booking-form {}
   .form-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
   .form-sub { font-size: .85rem; color: var(--text-muted); margin-bottom: 28px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -565,9 +380,7 @@
     color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: .92rem;
     transition: border-color .2s; outline: none;
   }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    border-color: var(--amber);
-  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--amber); }
   .form-group select option { background: var(--dark); }
   .form-group textarea { resize: vertical; min-height: 80px; }
   .btn-form {
@@ -579,19 +392,16 @@
   .btn-form:hover { background: var(--gold); transform: translateY(-2px); }
 
   /* ── LOCATIONS ── */
-  #locations { background: var(--black); }
+  .locations-section { padding: 100px 48px; background: var(--black); max-width: none; }
+  .locations-inner { max-width: 1200px; margin: 0 auto; }
   .locations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 60px; }
   .location-card {
     background: var(--dark); border: 1px solid rgba(200,131,42,0.15);
-    border-radius: 4px; overflow: hidden;
+    border-radius: 6px; overflow: hidden;
     transition: transform .3s, box-shadow .3s;
   }
   .location-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-  .location-map {
-    height: 200px; background: var(--brown);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 3rem; position: relative;
-  }
+  .location-map { height: 200px; background: var(--brown); display: flex; align-items: center; justify-content: center; font-size: 3rem; position: relative; }
   .location-map iframe { width: 100%; height: 100%; border: none; filter: grayscale(.8) sepia(.3) brightness(.7); }
   .location-body { padding: 28px; }
   .location-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 16px; }
@@ -599,16 +409,11 @@
   .location-icon { font-size: 1rem; margin-top: 2px; min-width: 20px; }
   .location-text { font-size: .88rem; color: var(--text-muted); line-height: 1.6; }
   .location-text a { color: var(--amber); text-decoration: none; }
-  .location-badge {
-    display: inline-block; margin-top: 8px;
-    background: rgba(200,131,42,0.1); border: 1px solid rgba(200,131,42,0.2);
-    padding: 4px 12px; border-radius: 100px; font-size: .72rem;
-    color: var(--amber); font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-  }
+  .location-badge { display: inline-block; margin-top: 8px; background: rgba(200,131,42,0.1); border: 1px solid rgba(200,131,42,0.2); padding: 4px 12px; border-radius: 3px; font-size: .72rem; color: var(--amber); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
 
-  /* ── ORDER ONLINE ── */
-  #order { background: var(--dark); max-width: none; padding: 100px 0; }
-  .order-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; text-align: center; }
+  /* ── ORDER ── */
+  .order-section { padding: 100px 48px; background: var(--dark); max-width: none; text-align: center; }
+  .order-inner { max-width: 1200px; margin: 0 auto; }
   .order-grid { display: flex; gap: 20px; justify-content: center; margin-top: 48px; flex-wrap: wrap; }
   .order-card {
     background: var(--black); border: 1px solid rgba(200,131,42,0.15);
@@ -619,20 +424,16 @@
   .order-card:hover { transform: translateY(-4px); border-color: var(--amber); }
   .order-logo { font-size: 2.5rem; }
   .order-name { font-weight: 700; font-size: 1rem; color: var(--white); }
-  .order-sub { font-size: .78rem; color: var(--text-muted); }
-  .order-arrow { color: var(--amber); font-size: 1.2rem; margin-top: 8px; }
+  .order-arrow { color: var(--amber); font-size: 1.2rem; }
 
   /* ── CONTACT ── */
-  #contact { background: var(--black); }
+  .contact-section { padding: 100px 48px; background: var(--black); max-width: none; }
+  .contact-inner { max-width: 1200px; margin: 0 auto; }
   .contact-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 60px; }
-  .contact-card {
-    background: var(--dark); border: 1px solid rgba(200,131,42,0.1);
-    border-radius: 4px; padding: 32px;
-    transition: border-color .3s;
-  }
+  .contact-card { background: var(--dark); border: 1px solid rgba(200,131,42,0.1); border-radius: 6px; padding: 32px; transition: border-color .3s; }
   .contact-card:hover { border-color: rgba(200,131,42,0.3); }
   .contact-icon { font-size: 2rem; margin-bottom: 16px; }
-  .contact-label { font-size: .7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); font-weight: 600; margin-bottom: 12px; }
+  .contact-label { font-size: .7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); font-weight: 700; margin-bottom: 12px; }
   .contact-value { color: var(--cream); font-size: .95rem; line-height: 1.8; }
   .contact-value a { color: var(--cream); text-decoration: none; transition: color .2s; }
   .contact-value a:hover { color: var(--gold); }
@@ -642,71 +443,34 @@
     background: var(--dark); border-top: 1px solid rgba(200,131,42,0.1);
     padding: 48px; text-align: center;
   }
-  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; color: var(--gold); margin-bottom: 16px; }
-  .footer-socials { display: flex; justify-content: center; gap: 16px; margin: 24px 0; }
-  .social-btn {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: rgba(200,131,42,0.1); border: 1px solid rgba(200,131,42,0.2);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--cream); text-decoration: none; font-size: .85rem;
-    transition: all .2s; font-weight: 700;
-  }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; color: var(--gold); margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .footer-socials { display: flex; justify-content: center; gap: 16px; margin: 20px 0; }
+  .social-btn { width: 44px; height: 44px; border-radius: 50%; background: rgba(200,131,42,0.1); border: 1px solid rgba(200,131,42,0.2); display: flex; align-items: center; justify-content: center; color: var(--cream); text-decoration: none; font-size: .85rem; transition: all .2s; font-weight: 700; }
   .social-btn:hover { background: var(--amber); color: var(--black); border-color: var(--amber); }
-  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
-  .footer-links a { color: var(--text-muted); text-decoration: none; font-size: .85rem; transition: color .2s; }
-  .footer-links a:hover { color: var(--gold); }
-  .footer-copy { font-size: .78rem; color: var(--text-muted); }
+  .footer-copy { font-size: .78rem; color: var(--text-muted); margin-top: 16px; }
 
-  /* ── FLOATING WA BUTTON ── */
-  .wa-float {
-    position: fixed; bottom: 88px; right: 24px; z-index: 999;
-    background: #25d366; color: #000;
-    width: 60px; height: 60px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem; text-decoration: none;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.5);
-    animation: waPulse 2s infinite;
-    transition: transform .2s;
-  }
+  /* ── FLOATING ── */
+  .wa-float { position: fixed; bottom: 100px; right: 24px; z-index: 999; background: #25d366; color: #000; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.5); animation: waPulse 2s infinite; transition: transform .2s; }
   .wa-float:hover { transform: scale(1.1); }
-  @keyframes waPulse {
-    0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
-    50% { box-shadow: 0 4px 40px rgba(37,211,102,0.8); }
-  }
-  .wa-float-tooltip {
-    position: fixed; bottom: 108px; right: 92px; z-index: 999;
-    background: var(--dark); border: 1px solid rgba(37,211,102,0.3);
-    padding: 8px 16px; border-radius: 100px;
-    font-size: .78rem; color: var(--cream); white-space: nowrap;
-    animation: waPulse2 3s infinite;
-  }
+  @keyframes waPulse { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.5)} 50%{box-shadow:0 4px 40px rgba(37,211,102,.8)} }
+  .wa-float-tooltip { position: fixed; bottom: 120px; right: 92px; z-index: 999; background: var(--dark); border: 1px solid rgba(37,211,102,0.3); padding: 8px 16px; border-radius: 100px; font-size: .78rem; color: var(--cream); white-space: nowrap; animation: waPulse2 3s infinite; }
   @keyframes waPulse2 { 0%,100%{opacity:1} 50%{opacity:.7} }
-
-  /* ── STICKY BOOK BTN ── */
-  .sticky-book {
-    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-    z-index: 998;
-    background: var(--amber); color: var(--black);
-    padding: 14px 32px; border-radius: 100px;
-    font-weight: 700; font-size: .85rem; letter-spacing: 1px; text-transform: uppercase;
-    text-decoration: none;
-    box-shadow: 0 4px 30px rgba(200,131,42,0.5);
-    animation: stickyBob 3s ease-in-out infinite;
-    white-space: nowrap;
-  }
+  .sticky-book { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 998; background: var(--amber); color: var(--black); padding: 14px 32px; border-radius: 100px; font-weight: 700; font-size: .85rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; box-shadow: 0 4px 30px rgba(200,131,42,0.5); animation: stickyBob 3s ease-in-out infinite; white-space: nowrap; }
   @keyframes stickyBob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-4px)} }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-    nav { padding: 16px 20px; }
+    nav { padding: 12px 20px; flex-direction: column; gap: 12px; }
     .nav-links { display: none; }
-    .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 100px 20px 60px; }
+    .nav-book { width: 100%; text-align: center; }
+    .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 80px 20px 60px; }
     .hero-visual { display: none; }
-    section { padding: 60px 20px; }
+    .content-section { padding: 60px 20px; }
     .sig-grid { grid-template-columns: 1fr; }
-    .menu-grid { grid-template-columns: 1fr 1fr; }
-    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-    .gallery-item:nth-child(1), .gallery-item:nth-child(4) { grid-column: auto; grid-row: auto; }
+    .menu-section { padding: 80px 20px; }
+    .menu-nav-sticky { margin: 0 -20px 40px; padding: 0 20px; }
+    .menu-image-display { grid-template-columns: 1fr; }
+    .items-grid { grid-template-columns: 1fr; }
     .reviews-grid { grid-template-columns: 1fr; }
     .booking-grid { grid-template-columns: 1fr; }
     .locations-grid { grid-template-columns: 1fr; }
@@ -716,15 +480,8 @@
     .rating-platforms { margin-left: 0; }
     .wa-float-tooltip { display: none; }
     .sticky-book { font-size: .75rem; padding: 12px 24px; }
-    .menu-nav-btn { padding: 12px 14px; font-size: .72rem; }
-    .items-grid { grid-template-columns: 1fr; }
-    .items-grid.three { grid-template-columns: 1fr 1fr; }
-    .cta-btns { flex-direction: column; align-items: center; }
-    .menu-hero { padding: 100px 20px 40px; }
-    .menu-content { padding: 0 16px 80px; }
   }
 
-  /* ── SCROLL REVEAL ── */
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 </style>
@@ -733,57 +490,36 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">☕ Beanshot</a>
+  <a href="#hero" class="nav-logo">☕ Beanshot</a>
   <ul class="nav-links">
-    <li><a href="#menu-preview">Menu Preview</a></li>
-    <li><a href="#full-menu">Full Menu</a></li>
+    <li><a href="#menu">Menu</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#locations">Locations</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#booking" class="nav-book">Book a Table</a></li>
+    <li><a href="#booking" class="nav-book">Book Table</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section id="hero" style="padding:0; max-width:none;">
+<section id="hero">
   <div class="hero-bg"></div>
-  <div class="hero-grain"></div>
   <div class="hero-circle"></div>
   <div class="hero-content">
     <div>
-      <div class="hero-tag">☕ Premium Cafe Experience</div>
+      <div class="hero-tag">Est. 2018 · Kolkata's Premium Cafe</div>
       <h1 class="hero-h1">Kolkata's Most <em>Aesthetic</em> Cafe</h1>
-      <p class="hero-sub">Legendary burgers, specialty coffee, live ambiance & Instagram-worthy corners. The Beanshot is not just a cafe—it's an experience.</p>
-      <p class="hero-urgency">Limited table availability during peak hours</p>
+      <p class="hero-sub">Viral Selfie Coffee & Legendary Illegal Burgers. Two iconic locations. One unforgettable vibe.</p>
+      <p class="hero-urgency">🔥 Limited seats today — Book now!</p>
       <div class="hero-ctas">
-        <a href="#booking" class="btn-primary">🍽️ Reserve Now</a>
-        <a href="#full-menu" class="btn-secondary">📖 Explore Menu</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">15K+</div>
-          <div class="stat-label">Monthly Visitors</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">4.8★</div>
-          <div class="stat-label">Rated on Google</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">50+</div>
-          <div class="stat-label">Menu Items</div>
-        </div>
+        <a href="https://wa.me/919875553938?text=Hey%20Beanshot%20Cafe!%20I%20would%20like%20to%20book%20a%20table%20%F0%9F%8D%BD%EF%B8%8F%0A%0AName:%20%0ANo.%20of%20people:%20%0ADate:%20%0ATime:%20%0ANote%20(if%20any):" target="_blank" class="btn-primary">📲 Book on WhatsApp</a>
+        <a href="#menu" class="btn-secondary">🍽️ View Menu</a>
       </div>
     </div>
     <div class="hero-visual">
       <div class="hero-badge">
-        <div class="hero-badge-icon">🍔</div>
-        <div class="hero-badge-text">The Illegal Burger</div>
-        <div class="hero-badge-sub">Our Signature Beast</div>
-      </div>
-      <div class="hero-pills">
-        <span class="pill">☕ Premium Coffee</span>
-        <span class="pill">🍔 Instagram Burgers</span>
-        <span class="pill">📸 Gram Cafe Goals</span>
+        <span class="hero-badge-icon">☕🍔</span>
+        <div class="hero-badge-text">Selfie Coffee<br>& Illegal Burgers</div>
+        <div class="hero-badge-sub">Kolkata's Viral Favorites</div>
       </div>
     </div>
   </div>
@@ -791,646 +527,216 @@
 
 <div class="divider"></div>
 
-<!-- SIGNATURE -->
-<section id="signature" style="padding:100px 0; max-width:none;">
-  <div class="sig-inner">
-    <div class="section-label">What We're Known For</div>
-    <h2 class="section-title">Our <em>Signature</em> Creations</h2>
-    <p class="section-desc">Two items that put Beanshot on Kolkata's food map — and keep people coming back.</p>
-    <div class="sig-grid reveal">
-      <div class="sig-card">
-        <div class="sig-badge">BESTSELLER</div>
-        <span class="sig-emoji">🍔</span>
-        <div class="sig-name">The Illegal Burger</div>
-        <div class="sig-desc">Four layers of grilled patty with lettuce, cheese, onion rings & jalapeño. It's massive, it's legendary, it's served Instagram-ready. Available in Chicken, Pork & Veg. ₹585</div>
-      </div>
-      <div class="sig-card">
-        <div class="sig-badge">FAN FAVORITE</div>
-        <span class="sig-emoji">☕</span>
-        <div class="sig-name">Biscoff Latte</div>
-        <div class="sig-desc">Espresso, hot milk & our signature Biscoff cream blend. Creamy, cinnamon-kissed, and topped with caramelized biscuit crumbs. The perfect vibe cup. ₹305</div>
-      </div>
+<!-- SIGNATURE SECTION -->
+<section class="content-section reveal">
+  <div class="section-label">What We're Known For</div>
+  <h2 class="section-title">Our <em>Signature</em> Creations</h2>
+  <p class="section-desc">Two legendary items that put Beanshot on the map — and keep people coming back for more.</p>
+  <div class="sig-grid">
+    <div class="sig-card">
+      <span class="sig-badge">🔥 Fan Favourite</span>
+      <span class="sig-emoji">🍔</span>
+      <div class="sig-name">The Illegal Burgers</div>
+      <p class="sig-desc">Four-layer towering masterpieces so loaded they should be illegal. The Illegal Cheesy Avalanche, Chicken Steak, Veg Avalanche — each one a challenge. Served with fries & dip.</p>
+    </div>
+    <div class="sig-card">
+      <span class="sig-badge">📸 Insta-Famous</span>
+      <span class="sig-emoji">☕</span>
+      <div class="sig-name">Selfie Coffee</div>
+      <p class="sig-desc">Kolkata's most photographed coffee. Latte art crafted to perfection — from classic cappuccinos to Biscoff Latte and Cheesecake Latte. Every cup tells a story.</p>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- MENU PREVIEW -->
-<section id="menu-preview">
-  <div class="section-label">Taste the Best</div>
-  <h2 class="section-title">Best-Selling <em>Picks</em></h2>
-  <p class="section-desc">A taste of what awaits you. View our full menu for the complete experience.</p>
-  <div class="menu-grid reveal">
-    <div class="menu-card">
-      <div class="menu-card-img">☕</div>
-      <div class="menu-card-body">
-        <div class="menu-card-tag">HOT BEVERAGE</div>
-        <div class="menu-card-name">Biscoff Latte</div>
-        <div class="menu-card-desc">Espresso, hot milk, Biscoff</div>
-        <div class="menu-card-price">₹305</div>
-      </div>
-    </div>
-    <div class="menu-card">
-      <div class="menu-card-img">🍔</div>
-      <div class="menu-card-body">
-        <div class="menu-card-tag">SIGNATURE</div>
-        <div class="menu-card-name">The Illegal Burger</div>
-        <div class="menu-card-desc">4-layer beast with cheese & onion rings</div>
-        <div class="menu-card-price">₹585</div>
-      </div>
-    </div>
-    <div class="menu-card">
-      <div class="menu-card-img">🍕</div>
-      <div class="menu-card-body">
-        <div class="menu-card-tag">PIZZA</div>
-        <div class="menu-card-name">Triple Chicken Delight</div>
-        <div class="menu-card-desc">Grilled chicken, sausage, salami & peppers</div>
-        <div class="menu-card-price">₹415</div>
-      </div>
-    </div>
-    <div class="menu-card">
-      <div class="menu-card-img">🍳</div>
-      <div class="menu-card-body">
-        <div class="menu-card-tag">BREAKFAST</div>
-        <div class="menu-card-name">English Breakfast</div>
-        <div class="menu-card-desc">Eggs, sausage, bacon, tomato & beans</div>
-        <div class="menu-card-price">₹395</div>
-      </div>
-    </div>
-    <div class="menu-card">
-      <div class="menu-card-img">🍰</div>
-      <div class="menu-card-body">
-        <div class="menu-card-tag">DESSERT</div>
-        <div class="menu-card-name">Tutti Frutti Slider</div>
-        <div class="menu-card-desc">Ice cream, fruits, brownies masterpiece</div>
-        <div class="menu-card-price">₹375</div>
-      </div>
-    </div>
-    <div class="menu-card">
-      <div class="menu-card-img">🍲</div>
-      <div class="menu-card-body">
-        <div class="menu-card-tag">STARTER</div>
-        <div class="menu-card-name">Crispy Chicken Strips</div>
-        <div class="menu-card-desc">Marinated in mint, coriander & spices</div>
-        <div class="menu-card-price">₹185</div>
-      </div>
-    </div>
-  </div>
-  <div class="menu-cta reveal">
-    <a href="#full-menu" class="btn-primary">🍽️ View Full Menu</a>
-  </div>
-</section>
+<!-- MENU SECTION -->
+<section class="menu-section" id="menu">
+  <div class="menu-inner">
+    <div class="section-label" style="color:var(--white);margin-bottom:20px;">Scroll through categories</div>
+    <h2 class="section-title" style="color:var(--gold);">Our Full <em>Menu</em> — Every Dish</h2>
+    <p class="section-desc" style="color:var(--cream);">From hot coffees to legendary burgers, pizzas, pastas, and show-stopping desserts. Everything crafted with love.</p>
 
-<div class="divider"></div>
+    <!-- MENU NAV -->
+    <div class="menu-nav-sticky">
+      <div class="menu-nav-sticky-inner">
+        <button class="menu-nav-btn active" onclick="scrollToMenu('coffee')">☕ Coffee</button>
+        <button class="menu-nav-btn" onclick="scrollToMenu('breakfast')">🍳 Breakfast</button>
+        <button class="menu-nav-btn" onclick="scrollToMenu('starters')">🍟 Starters</button>
+        <button class="menu-nav-btn" onclick="scrollToMenu('burgers')">🍔 Burgers</button>
+        <button class="menu-nav-btn" onclick="scrollToMenu('pizza')">🍕 Pizza</button>
+        <button class="menu-nav-btn" onclick="scrollToMenu('pasta')">🍝 Pasta</button>
+        <button class="menu-nav-btn" onclick="scrollToMenu('main')">🍽️ Mains</button>
+        <button class="menu-nav-btn" onclick="scrollToMenu('desserts')">🍰 Desserts</button>
+      </div>
+    </div>
 
-<!-- GALLERY -->
-<section id="gallery" style="padding:100px 0; max-width:none;">
-  <div class="gallery-inner">
-    <div class="section-label">Ambiance</div>
-    <h2 class="section-title">Built for <em>The Gram</em></h2>
-    <p class="section-desc">Every corner of Beanshot is a photo waiting to happen. Come for the food, stay for the vibes.</p>
-    <div class="gallery-grid reveal">
-      <div class="gallery-item">
-        <div class="gallery-item-bg"></div>
-        <div class="gallery-item-decor"><span class="gallery-emoji">☕</span></div>
-        <div class="gallery-overlay"><span class="gallery-overlay-text">Coffee Bar</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-item-bg"></div>
-        <div class="gallery-item-decor"><span class="gallery-emoji">📸</span></div>
-        <div class="gallery-overlay"><span class="gallery-overlay-text">Photo Wall</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-item-bg"></div>
-        <div class="gallery-item-decor"><span class="gallery-emoji">💡</span></div>
-        <div class="gallery-overlay"><span class="gallery-overlay-text">Neon Vibes</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-item-bg"></div>
-        <div class="gallery-item-decor"><span class="gallery-emoji">🍔</span></div>
-        <div class="gallery-overlay"><span class="gallery-overlay-text">Food Station</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-item-bg"></div>
-        <div class="gallery-item-decor"><span class="gallery-emoji">🌙</span></div>
-        <div class="gallery-overlay"><span class="gallery-overlay-text">Night Ambiance</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-item-bg"></div>
-        <div class="gallery-item-decor"><span class="gallery-emoji">👥</span></div>
-        <div class="gallery-overlay"><span class="gallery-overlay-text">Social Space</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- REVIEWS -->
-<section id="reviews">
-  <div class="section-label">Customer Love</div>
-  <h2 class="section-title">What People <em>Say</em></h2>
-
-  <div class="rating-bar reveal">
-    <div>
-      <div class="rating-big">4.8</div>
-      <div class="rating-stars">⭐⭐⭐⭐⭐</div>
-      <div class="rating-count">1,200+ verified reviews</div>
-    </div>
-    <div style="margin-left:24px;">
-      <div style="font-size:.9rem;color:var(--cream);margin-bottom:8px;"><strong>Consistently rated top cafe in Kolkata</strong></div>
-      <div style="font-size:.82rem;color:var(--text-muted);">Loved for ambiance, food quality & service</div>
-    </div>
-    <div class="rating-platforms">
-      <div class="platform-badge">
-        <div class="platform-name">Google</div>
-        <div class="platform-rating">4.8</div>
-      </div>
-      <div class="platform-badge">
-        <div class="platform-name">Swiggy</div>
-        <div class="platform-rating">4.6</div>
-      </div>
-      <div class="platform-badge">
-        <div class="platform-name">Zomato</div>
-        <div class="platform-rating">4.7</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="reviews-grid reveal">
-    <div class="review-card">
-      <div class="review-stars">⭐⭐⭐⭐⭐</div>
-      <div class="review-text">Best cafe I've been to! The ambiance is unbeatable and their burgers are absolutely legendary. Must visit!</div>
-      <div class="reviewer">
-        <div class="reviewer-avatar">👩</div>
-        <div>
-          <div class="reviewer-name">Priya Sharma</div>
-          <div class="reviewer-platform">Google Review</div>
-        </div>
-      </div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">⭐⭐⭐⭐⭐</div>
-      <div class="review-text">The Illegal Burger is no joke! Worth every penny. Coffee is excellent too. Perfect date spot.</div>
-      <div class="reviewer">
-        <div class="reviewer-avatar">👨</div>
-        <div>
-          <div class="reviewer-name">Rahul Verma</div>
-          <div class="reviewer-platform">Zomato Review</div>
-        </div>
-      </div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">⭐⭐⭐⭐⭐</div>
-      <div class="review-text">Every corner is Instagram-worthy! The aesthetic, the food, the vibes—everything is perfect.</div>
-      <div class="reviewer">
-        <div class="reviewer-avatar">👱</div>
-        <div>
-          <div class="reviewer-name">Anjali Gupta</div>
-          <div class="reviewer-platform">Instagram</div>
-        </div>
-      </div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">⭐⭐⭐⭐⭐</div>
-      <div class="review-text">Outstanding service and quality. The Biscoff Latte is addictive. Highly recommended!</div>
-      <div class="reviewer">
-        <div class="reviewer-avatar">👨‍🦱</div>
-        <div>
-          <div class="reviewer-name">Amit Singh</div>
-          <div class="reviewer-platform">Swiggy Review</div>
-        </div>
-      </div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">⭐⭐⭐⭐⭐</div>
-      <div class="review-text">Finally found the perfect cafe! Ambiance is next level, food is delicious, staff is super friendly.</div>
-      <div class="reviewer">
-        <div class="reviewer-avatar">👩‍🦱</div>
-        <div>
-          <div class="reviewer-name">Neha Kapoor</div>
-          <div class="reviewer-platform">Google Review</div>
-        </div>
-      </div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">⭐⭐⭐⭐⭐</div>
-      <div class="review-text">A must-visit for everyone! The variety in menu, quality of food and the overall experience is amazing.</div>
-      <div class="reviewer">
-        <div class="reviewer-avatar">👨‍🦱</div>
-        <div>
-          <div class="reviewer-name">Vikram Das</div>
-          <div class="reviewer-platform">Zomato Review</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="tag-cloud reveal">
-    <span class="tag">CozyAmbiance</span>
-    <span class="tag">GreatCoffee</span>
-    <span class="tag">PerfectForDates</span>
-    <span class="tag">IllegalBurgers</span>
-    <span class="tag">SelfieCoffee</span>
-    <span class="tag">LateNightCravings</span>
-    <span class="tag">YoungsterFavourite</span>
-    <span class="tag">GoodDesserts</span>
-    <span class="tag">AestheticCafe</span>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- FULL MENU SECTION -->
-<section id="full-menu" style="padding:0; max-width:none;">
-  <div class="menu-hero">
-    <div class="menu-hero-tag">✨ Full Menu 2024</div>
-    <h1>Our <em>Complete</em> Menu</h1>
-    <p>From hot coffees and all-day breakfasts to legendary burgers, pizzas, pasta and show-stopping desserts — we've got it all.</p>
-    <div class="menu-hero-note">
-      🍃 <span style="color:var(--veg);font-weight:600;">Green</span> = Veg &nbsp;|&nbsp; 🔴 <span style="color:#e07060;font-weight:600;">Red</span> = Non-Veg &nbsp;|&nbsp; GST extra as applicable
-    </div>
-  </div>
-
-  <!-- STICKY NAV -->
-  <div class="menu-nav">
-    <div class="menu-nav-inner">
-      <a href="#hot-coffee" class="menu-nav-btn active">☕ Hot Coffee</a>
-      <a href="#breakfast" class="menu-nav-btn">🍳 Breakfast</a>
-      <a href="#soups" class="menu-nav-btn">🍲 Soups & Salads</a>
-      <a href="#starters" class="menu-nav-btn">🍟 Starters</a>
-      <a href="#burgers" class="menu-nav-btn">🍔 Burgers</a>
-      <a href="#pizza" class="menu-nav-btn">🍕 Pizza</a>
-      <a href="#pasta" class="menu-nav-btn">🍝 Pasta</a>
-      <a href="#main" class="menu-nav-btn">🍽️ Main Course</a>
-      <a href="#desserts" class="menu-nav-btn">🍰 Desserts</a>
-    </div>
-  </div>
-
-  <!-- MENU CONTENT -->
-  <div class="menu-content">
-
-    <!-- ─── HOT COFFEE ─── -->
-    <div class="cat-section reveal" id="hot-coffee">
+    <!-- COFFEE MENU -->
+    <div class="menu-cat reveal" id="coffee">
       <div class="cat-header">
         <span class="cat-icon">☕</span>
-        <div><div class="cat-title">Hot Coffee</div><div class="cat-sub">Freshly brewed espresso-based drinks</div></div>
+        <div><div class="cat-title">Hot Coffee</div></div>
         <div class="cat-divider"></div>
       </div>
       <div class="items-grid">
-        <div class="menu-item">
-          <div class="item-left">
-            <div class="item-name">Espresso</div>
-            <div class="item-desc">Single / Double shot</div>
-          </div>
-          <div class="item-price">135 / 165</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-left">
-            <div class="item-name">Cappuccino</div>
-            <div class="item-desc">Espresso, warm milk, milk foam</div>
-          </div>
-          <div class="item-price">₹185</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-left">
-            <div class="item-name">Hazelnut / Tiramisu Cappuccino</div>
-            <div class="item-desc">Flavoured cappuccino</div>
-          </div>
-          <div class="item-price">₹230</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-left">
-            <div class="item-name">Flat White</div>
-            <div class="item-desc">Espresso, hot milk</div>
-          </div>
-          <div class="item-price">₹195</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-left">
-            <div class="item-name">Cafe Latte</div>
-            <div class="item-desc">Espresso, hot milk</div>
-          </div>
-          <div class="item-price">₹195</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-left">
-            <div class="item-name">Biscoff Latte <span class="item-badge">Fan Fav</span></div>
-            <div class="item-desc">Espresso, hot milk, Biscoff</div>
-          </div>
-          <div class="item-price">₹305</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-left">
-            <div class="item-name">Cinnamon Latte</div>
-            <div class="item-desc">Espresso, hot milk, cinnamon</div>
-          </div>
-          <div class="item-price">₹210</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-left">
-            <div class="item-name">Cheesecake Latte</div>
-            <div class="item-desc">A creamy, indulgent latte experience</div>
-          </div>
-          <div class="item-price">₹250</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-left">
-            <div class="item-name">Americano</div>
-            <div class="item-desc">Espresso, hot water — Single / Double</div>
-          </div>
-          <div class="item-price">155 / 185</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-left">
-            <div class="item-name">Irish Coffee</div>
-            <div class="item-desc">Espresso, hot water, Irish flavour, cream</div>
-          </div>
-          <div class="item-price">₹250</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-left">
-            <div class="item-name">Cafe Mocha</div>
-            <div class="item-desc">Espresso, hot chocolate, milk</div>
-          </div>
-          <div class="item-price">₹230</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-left">
-            <div class="item-name">Caramel Macchiato</div>
-            <div class="item-desc">Espresso, caramel, milk foam</div>
-          </div>
-          <div class="item-price">₹230</div>
-        </div>
-      </div>
-      <div class="addons-box">
-        <div class="addons-title">☕ Coffee Add-Ons</div>
-        <div class="addons-grid">
-          <span class="addon-pill">Whipped Cream <span>+₹50</span></span>
-          <span class="addon-pill">Caramel / Vanilla / Hazelnut <span>+₹45</span></span>
-          <span class="addon-pill">Soy Milk <span>+₹45</span></span>
-          <span class="addon-pill">Almond Milk <span>+₹85</span></span>
-          <span class="addon-pill">Oat Milk <span>+₹85</span></span>
-        </div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Espresso<span class="item-badge">Classic</span></div><div class="item-desc">Single / Double shot</div></div><div class="item-price">₹135/165</div></div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Cappuccino</div><div class="item-desc">Espresso, warm milk, foam</div></div><div class="item-price">₹185</div></div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Cafe Latte</div><div class="item-desc">Espresso, hot milk</div></div><div class="item-price">₹195</div></div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Biscoff Latte<span class="item-badge">Fan Fav</span></div><div class="item-desc">Espresso, hot milk, Biscoff</div></div><div class="item-price">₹305</div></div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Cheesecake Latte</div><div class="item-desc">Creamy, indulgent latte</div></div><div class="item-price">₹250</div></div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Americano</div><div class="item-desc">Espresso, hot water</div></div><div class="item-price">₹155/185</div></div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Caramel Macchiato</div><div class="item-desc">Espresso, caramel, foam</div></div><div class="item-price">₹230</div></div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Hot Chocolate</div><div class="item-desc">Rich & creamy</div></div><div class="item-price">₹260</div></div>
       </div>
     </div>
 
-    <!-- ─── BREAKFAST ─── -->
-    <div class="cat-section reveal" id="breakfast">
+    <!-- BREAKFAST MENU -->
+    <div class="menu-cat reveal" id="breakfast">
       <div class="cat-header">
         <span class="cat-icon">🍳</span>
-        <div><div class="cat-title">All Day Breakfast</div><div class="cat-sub">Served all day, every day</div></div>
+        <div><div class="cat-title">All Day Breakfast & Sandwiches</div></div>
         <div class="cat-divider"></div>
       </div>
-
-      <div class="sub-cat">
-        <div class="sub-cat-label all">🍽️ Platters</div>
-        <div class="items-grid single">
-          <div class="menu-item">
-            <div class="item-dot nv"></div>
-            <div class="item-left">
-              <div class="item-name">The Classic Platter</div>
-              <div class="item-desc">Choice of eggs, chicken sausages, chicken salami, sauté mushroom, baked beans, grilled tomato, toasted bread</div>
-            </div>
-            <div class="item-price">₹275</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-dot nv"></div>
-            <div class="item-left">
-              <div class="item-name">English Breakfast <span class="item-badge">Must Try</span></div>
-              <div class="item-desc">Choice of eggs, pork sausages, pork salami, bacon, sauté mushroom, baked beans, grilled tomato, toasted bread</div>
-            </div>
-            <div class="item-price">₹395</div>
-          </div>
-        </div>
-        <div class="note-box">Choice of eggs: Masala omelette, Scrambled eggs, Sunny side up</div>
-      </div>
-
-      <div class="sub-cat">
-        <div class="sub-cat-label nonveg">🥚 Eggs</div>
-        <div class="items-grid">
-          <div class="menu-item">
-            <div class="item-dot v"></div>
-            <div class="item-left"><div class="item-name">Spanish Omelette</div><div class="item-desc">3 eggs, Italian herbs, bell peppers, cheese, potato, buttered toasts</div></div>
-            <div class="item-price">₹165</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-dot v"></div>
-            <div class="item-left"><div class="item-name">Cheese Omelette</div><div class="item-desc">3 eggs with cheese, buttered toasts</div></div>
-            <div class="item-price">₹165</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-dot nv"></div>
-            <div class="item-left"><div class="item-name">Coriander Chicken Omelette</div><div class="item-desc">3 eggs wrapped in chicken, buttered toasts</div></div>
-            <div class="item-price">₹185</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-dot nv"></div>
-            <div class="item-left"><div class="item-name">Chicken Fajita Omelette</div><div class="item-desc">3 eggs, chicken, fajita seasoning, buttered toasts</div></div>
-            <div class="item-price">₹215</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-dot nv"></div>
-            <div class="item-left"><div class="item-name">Chicken + Bacon Omelette</div><div class="item-desc">3 eggs, grilled chicken & bacon, buttered toasts</div></div>
-            <div class="item-price">₹250</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─── SOUPS & SALADS ─── -->
-    <div class="cat-section reveal" id="soups">
-      <div class="cat-header">
-        <span class="cat-icon">🍲</span>
-        <div><div class="cat-title">Soups & Salads</div><div class="cat-sub">Healthy bites & warm comfort</div></div>
-        <div class="cat-divider"></div>
-      </div>
-      <div class="sub-cat-label all">🍵 Soups</div>
       <div class="items-grid">
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Tomato & Basil Soup</div></div><div class="item-price">₹110</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Cream of Sweet Corn</div></div><div class="item-price">₹130</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Cream of Mushroom</div></div><div class="item-price">₹130</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Cream of Chicken</div></div><div class="item-price">₹150</div></div>
+        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Spanish Omelette</div><div class="item-desc">3 eggs, herbs, peppers, cheese, potato</div></div><div class="item-price">₹165</div></div>
+        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Cheese Omelette</div><div class="item-desc">3 eggs with cheese, toasts</div></div><div class="item-price">₹165</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">English Breakfast<span class="item-badge">Must Try</span></div><div class="item-desc">Eggs, sausages, bacon, mushrooms, beans</div></div><div class="item-price">₹395</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">The Classic Platter</div><div class="item-desc">Choice of eggs, sausages, beans, tomato</div></div><div class="item-price">₹275</div></div>
+        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Veggie Delight Sandwich</div><div class="item-desc">Peppers, onion, tomato, cheese</div></div><div class="item-price">₹140</div></div>
+        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Paneer Tikka Sandwich</div><div class="item-desc">Paneer tikka & cheese</div></div><div class="item-price">₹195</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Chicken Traditional Sandwich</div><div class="item-desc">Chicken in Indian spices & cheese</div></div><div class="item-price">₹220</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Meat Lovers Sandwich</div><div class="item-desc">Chicken, salami, egg, bacon, cheese</div></div><div class="item-price">₹325</div></div>
       </div>
     </div>
 
-    <!-- ─── STARTERS ─── -->
-    <div class="cat-section reveal" id="starters">
+    <!-- STARTERS MENU -->
+    <div class="menu-cat reveal" id="starters">
       <div class="cat-header">
         <span class="cat-icon">🍟</span>
-        <div><div class="cat-title">Starters</div><div class="cat-sub">Add extra dip: ₹20</div></div>
+        <div><div class="cat-title">Starters & Wings</div></div>
         <div class="cat-divider"></div>
       </div>
-      <div class="sub-cat-label veg">Veg Starters</div>
       <div class="items-grid">
         <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">French Fries</div><div class="item-desc">Served with cocktail sauce</div></div><div class="item-price">₹90</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Peri-Peri French Fries</div><div class="item-desc">Crispy fries with peri-peri spice</div></div><div class="item-price">₹105</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Potato Wedges</div><div class="item-desc">With cocktail sauce</div></div><div class="item-price">₹110</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Peri-Peri Potato Wedges</div></div><div class="item-price">₹125</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Cheese Shots</div><div class="item-desc">Panko-crusted corn & mozzarella balls</div></div><div class="item-price">₹220</div></div>
-      </div>
-      <div class="sub-cat-label nonveg" style="margin-top:20px;">Non-Veg Starters</div>
-      <div class="items-grid">
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Crispy Chicken Strips</div><div class="item-desc">Marinated in mint, coriander, chef's spice mix</div></div><div class="item-price">₹185</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Cheese Corn Dog</div><div class="item-desc">Cheese-wrapped chicken sausages</div></div><div class="item-price">₹245</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Cheesy Meat Balls</div><div class="item-desc">Panko-crusted, stuffed with mozzarella</div></div><div class="item-price">₹240</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Peri Peri Chicken</div><div class="item-desc">Grilled chicken tossed in peri-peri sauce</div></div><div class="item-price">₹265</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Fish Fingers</div></div><div class="item-price">₹225</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Fish Orly</div></div><div class="item-price">₹190</div></div>
+        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Cheese Shots</div><div class="item-desc">Panko corn & mozzarella</div></div><div class="item-price">₹220</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Crispy Chicken Strips</div><div class="item-desc">Marinated in mint & spices</div></div><div class="item-price">₹185</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Peri Peri Chicken</div><div class="item-desc">Grilled in peri-peri sauce</div></div><div class="item-price">₹265</div></div>
+        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Classic Dirty Fries<span class="item-badge">🔥</span></div><div class="item-desc">Sweet corn & cheese sauce</div></div><div class="item-price">₹160</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Dirty Chicken Fajita Fries</div><div class="item-desc">Chicken fajita & cheese</div></div><div class="item-price">₹240</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Honey Glazed Wings</div></div><div class="item-price">₹195</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Hot Buffalo Wings</div></div><div class="item-price">₹195</div></div>
       </div>
     </div>
 
-    <!-- ─── BURGERS ─── -->
-    <div class="cat-section reveal" id="burgers">
+    <!-- BURGERS MENU -->
+    <div class="menu-cat reveal" id="burgers">
       <div class="cat-header">
         <span class="cat-icon">🍔</span>
-        <div><div class="cat-title">Burgers</div><div class="cat-sub">Served with fries & dip</div></div>
+        <div><div class="cat-title">Burgers & The Illegals</div></div>
         <div class="cat-divider"></div>
       </div>
-      <div class="sub-cat-label veg">Veg Burgers</div>
-      <div class="items-grid">
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Veggie Delight Burger</div><div class="item-desc">Veg patty, lettuce, cheese, onion, tomato</div></div><div class="item-price">₹140</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Cottage Cheese Burger</div><div class="item-desc">Cottage cheese & veg patty, lettuce, cheese, onion, jalapeño</div></div><div class="item-price">₹175</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Paneer Tikka Burger</div><div class="item-desc">Paneer tikka, lettuce, cheese, onion, jalapeño</div></div><div class="item-price">₹200</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">B.B.Q Paneer Burger</div><div class="item-desc">House spiced grilled paneer steak, lettuce, cheese, jalapeño</div></div><div class="item-price">₹250</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Mushroom Burger</div><div class="item-desc">Mushroom fritter, garlic parsley butter, coleslaw, lettuce, cheese, jalapeño</div></div><div class="item-price">₹220</div></div>
-      </div>
-      <div class="sub-cat-label nonveg" style="margin-top:20px;">Non-Veg Burgers</div>
-      <div class="items-grid">
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Classic Chicken Burger</div><div class="item-desc">Grilled chicken patty, lettuce, cheese, jalapeño</div></div><div class="item-price">₹175</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">The Fried Chicken Burger</div><div class="item-desc">Fried chicken, lettuce, cheese, jalapeño</div></div><div class="item-price">₹195</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">The Barbeque Steak Burger</div><div class="item-desc">Chicken seasoned in BBQ sauce, lettuce, cheese, jalapeño</div></div><div class="item-price">₹240</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Chicken Tikka Burger</div><div class="item-desc">Chicken tikka, lettuce, cheese, jalapeño</div></div><div class="item-price">₹220</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">The Cheesy Disaster Burger <span class="item-badge">🔥</span></div><div class="item-desc">Double grilled chicken, cheese, jalapeño, poached egg, caramelised onion</div></div><div class="item-price">₹325</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">The R.I.P Burger</div><div class="item-desc">Double grilled chicken, fried chicken, lettuce, cheese, tomato, jalapeño, poached egg</div></div><div class="item-price">₹375</div></div>
-      </div>
-      <div style="background:linear-gradient(135deg,#1a0d03,#0d0803);border:1px solid rgba(200,131,42,0.3);border-radius:6px;padding:32px;margin:40px 0;text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--gold);letter-spacing:4px;margin-bottom:24px;">THE ILLEGAL SLIDERS</div>
-        <div style="font-size:.82rem;color:var(--text-muted);margin-bottom:24px;">Kolkata's most legendary multi-layer burger tower</div>
-        <div class="items-grid single">
-          <div class="special-item">
-            <span class="special-badge">BESTSELLER</span>
-            <div class="special-name">The Illegal Chicken Steak</div>
-            <div class="special-desc">Four layers of barbeque chicken steak with lettuce, cheese slice, onion, jalapeño, onion rings</div>
-            <div class="special-prices"><div class="special-price">₹585</div></div>
-          </div>
-          <div class="special-item">
-            <div class="special-name">The Illegal Cheesy Avalanche</div>
-            <div class="special-desc">Four layers of grilled patty with lettuce, cheese slice, jalapeño, fried egg & cheese sauce, onion rings</div>
-            <div class="special-prices">
-              <div class="special-price">₹540<small>Chicken</small></div>
-              <div class="special-price">₹750<small>Bacon-Pork</small></div>
-            </div>
-          </div>
+      <div class="special-item">
+        <span class="special-badge">🔥 LEGENDARY</span>
+        <div class="special-name">The Illegal Cheesy Avalanche</div>
+        <div class="special-desc">Four layers of grilled patty with lettuce, cheese, jalapeño, fried egg & cheese sauce, onion rings. A tower of pure indulgence!</div>
+        <div style="position:relative;z-index:1;margin-top:12px;display:flex;gap:16px;flex-wrap:wrap;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--gold);">
+          <div>Chicken: ₹540</div>
+          <div>Bacon-Pork: ₹750</div>
         </div>
       </div>
+      <div class="items-grid">
+        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Veggie Delight Burger</div><div class="item-desc">Veg patty, lettuce, cheese, tomato</div></div><div class="item-price">₹140</div></div>
+        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Paneer Tikka Burger</div><div class="item-desc">Paneer tikka, cheese, jalapeño</div></div><div class="item-price">₹200</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Classic Chicken Burger</div><div class="item-desc">Grilled chicken, lettuce, cheese</div></div><div class="item-price">₹175</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">The Fried Chicken Burger</div><div class="item-desc">Fried chicken, lettuce, cheese, jalapeño</div></div><div class="item-price">₹195</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">BBQ Steak Burger</div><div class="item-desc">BBQ chicken, lettuce, cheese, jalapeño</div></div><div class="item-price">₹240</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">The R.I.P Burger<span class="item-badge">BEAST</span></div><div class="item-desc">Double grilled chicken, fried chicken, lettuce, cheese, egg</div></div><div class="item-price">₹375</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">The Sin Burger</div><div class="item-desc">Triple grilled patties, pork, chicken, bacon, egg</div></div><div class="item-price">₹575</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Big Bite Burger</div><div class="item-desc">Double grilled, double cheese, egg</div></div><div class="item-price">₹295/385</div></div>
+      </div>
     </div>
 
-    <!-- ─── PIZZA ─── -->
-    <div class="cat-section reveal" id="pizza">
+    <!-- PIZZA MENU -->
+    <div class="menu-cat reveal" id="pizza">
       <div class="cat-header">
         <span class="cat-icon">🍕</span>
-        <div><div class="cat-title">Pizza</div><div class="cat-sub">All pizzas are 10" in size</div></div>
+        <div><div class="cat-title">Pizza (10" size)</div></div>
         <div class="cat-divider"></div>
       </div>
-      <div class="sub-cat-label veg">Veg Pizzas</div>
       <div class="items-grid">
         <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Veggie Delight Pizza</div><div class="item-desc">Capsicum, onion, tomato</div></div><div class="item-price">₹285</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Golden Corn Pizza</div><div class="item-desc">Corn, capsicum & onion</div></div><div class="item-price">₹285</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Veggie Mushroom Pizza</div><div class="item-desc">Grilled mushroom, capsicum & onion</div></div><div class="item-price">₹285</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Paneer Tikka Pizza</div><div class="item-desc">Paneer tikka, capsicum, bell peppers, onion</div></div><div class="item-price">₹325</div></div>
-      </div>
-      <div class="sub-cat-label nonveg" style="margin-top:20px;">Non-Veg Pizzas</div>
-      <div class="items-grid">
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Grilled Chicken Pizza</div><div class="item-desc">Grilled chicken, capsicum & onion</div></div><div class="item-price">₹325</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Chicken Salami Pizza</div><div class="item-desc">Chicken salami, capsicum & onion</div></div><div class="item-price">₹325</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Barbeque Chicken Pizza</div><div class="item-desc">BBQ chicken, capsicum, onion & bell peppers</div></div><div class="item-price">₹395</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Triple Chicken Delight <span class="item-badge">MUST TRY</span></div><div class="item-desc">Grilled chicken, chicken sausages, chicken salami, bell peppers</div></div><div class="item-price">₹415</div></div>
+        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Golden Corn Pizza</div><div class="item-desc">Corn, capsicum, onion</div></div><div class="item-price">₹285</div></div>
+        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Paneer Tikka Pizza</div><div class="item-desc">Paneer tikka, peppers, onion</div></div><div class="item-price">₹325</div></div>
+        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Supreme Veg Pizza</div><div class="item-desc">Olives, peppers, corn, mushroom</div></div><div class="item-price">₹320</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Grilled Chicken Pizza</div><div class="item-desc">Grilled chicken, capsicum, onion</div></div><div class="item-price">₹325</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">BBQ Chicken Pizza</div><div class="item-desc">BBQ chicken, peppers, onion</div></div><div class="item-price">₹395</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Triple Chicken Delight<span class="item-badge">Must Try</span></div><div class="item-desc">Chicken, sausages, salami, peppers</div></div><div class="item-price">₹415</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Loaded Pork Pizza</div><div class="item-desc">Pork, bacon, capsicum, peppers</div></div><div class="item-price">₹465</div></div>
       </div>
     </div>
 
-    <!-- ─── PASTA ─── -->
-    <div class="cat-section reveal" id="pasta">
+    <!-- PASTA MENU -->
+    <div class="menu-cat reveal" id="pasta">
       <div class="cat-header">
         <span class="cat-icon">🍝</span>
-        <div><div class="cat-title">Pasta</div><div class="cat-sub">Served with garlic bread</div></div>
+        <div><div class="cat-title">Pasta</div></div>
         <div class="cat-divider"></div>
       </div>
       <div class="items-grid">
-        <div class="menu-item"><div class="item-left"><div class="item-name">Arrabiata</div><div class="item-desc">Red sauce pasta with garlic bread</div></div><div class="item-price">180/220</div></div>
-        <div class="menu-item"><div class="item-left"><div class="item-name">Alfredo</div><div class="item-desc">White sauce pasta with garlic bread</div></div><div class="item-price">195/230</div></div>
-        <div class="menu-item"><div class="item-left"><div class="item-name">Classic Mac & Cheese</div><div class="item-desc">Baked macaroni & cheese pasta</div></div><div class="item-price">195/230</div></div>
-        <div class="menu-item"><div class="item-left"><div class="item-name">Mixed Sauce</div><div class="item-desc">Red & white sauce pasta</div></div><div class="item-price">205/240</div></div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Arrabiata</div><div class="item-desc">Red sauce pasta with garlic bread</div></div><div class="item-price">₹180/220</div></div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Alfredo</div><div class="item-desc">White sauce pasta with garlic bread</div></div><div class="item-price">₹195/230</div></div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Classic Mac & Cheese</div><div class="item-desc">Baked macaroni & cheese</div></div><div class="item-price">₹195/230</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Fish & Prawn Spaghetti<span class="item-badge">🔥</span></div><div class="item-desc">Grilled fish & prawn in chef's sauce</div></div><div class="item-price">₹385</div></div>
         <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Spaghetti Bolognese</div><div class="item-desc">Spaghetti with minced meat sauce</div></div><div class="item-price">₹280</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Fish & Prawn Spaghetti <span class="item-badge">🔥</span></div><div class="item-desc">Grilled fish & prawn in chef's special sauce</div></div><div class="item-price">₹385</div></div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Creamy Pesto Sauce</div><div class="item-desc">Basil & parsley blended creamy pasta</div></div><div class="item-price">₹195/230</div></div>
       </div>
     </div>
 
-    <!-- ─── MAIN COURSE ─── -->
-    <div class="cat-section reveal" id="main">
+    <!-- MAIN COURSE MENU -->
+    <div class="menu-cat reveal" id="main">
       <div class="cat-header">
         <span class="cat-icon">🍽️</span>
-        <div><div class="cat-title">Main Course</div><div class="cat-sub">Hearty mains & steaks</div></div>
+        <div><div class="cat-title">Main Course</div></div>
         <div class="cat-divider"></div>
       </div>
-      <div class="sub-cat-label veg">Veg Mains</div>
       <div class="items-grid">
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Cottage Cheese in Creamy Cheese Sauce</div><div class="item-desc">Cottage cheese, mushroom, bell peppers in creamy sauce, herb rice</div></div><div class="item-price">₹260</div></div>
-        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Paneer Steak</div><div class="item-desc">Grilled paneer, hot garlic sauce, herb rice, sautéd vegetables</div></div><div class="item-price">₹295</div></div>
-      </div>
-      <div class="sub-cat-label nonveg" style="margin-top:20px;">Non-Veg Mains</div>
-      <div class="items-grid">
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Chicken Strogonoff</div><div class="item-desc">Shredded chicken, mushroom, onion in creamy gravy, herb rice</div></div><div class="item-price">₹260</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Baked Fish</div><div class="item-desc">Baked fish, french fries, herb rice or garlic bread</div></div><div class="item-price">₹360</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">English Roasted Chicken</div><div class="item-desc">Roasted chicken leg, Italian herbs, chef's special sauce, vegetables, mashed potato</div></div><div class="item-price">₹375</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">California Roasted Chicken <span class="item-badge">🔥</span></div><div class="item-desc">Roasted chicken leg, herbs, chef's special sauce, vegetables & mashed potato</div></div><div class="item-price">₹395</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Pork Chops</div><div class="item-desc">Pork chops, sautéd vegetables & mashed potato</div></div><div class="item-price">₹385</div></div>
-        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Italian Pork Platter <span class="item-badge">FEAST</span></div><div class="item-desc">Pork ribs, sausage, salami, bacon, vegetables, mashed potato & garlic bread</div></div><div class="item-price">₹575</div></div>
+        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Cottage Cheese Curry</div><div class="item-desc">Creamy cheese sauce, herb rice</div></div><div class="item-price">₹260</div></div>
+        <div class="menu-item"><div class="item-dot v"></div><div class="item-left"><div class="item-name">Paneer Steak</div><div class="item-desc">Grilled paneer, hot garlic sauce</div></div><div class="item-price">₹295</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">California Roasted Chicken</div><div class="item-desc">Roasted chicken, herbs, mashed potato</div></div><div class="item-price">₹395</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Grilled Chicken Steak</div><div class="item-desc">Boneless chicken, choice of sauce</div></div><div class="item-price">₹345</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Lemon Butter Fish</div><div class="item-desc">Grilled fish in lemon butter sauce</div></div><div class="item-price">₹345</div></div>
+        <div class="menu-item"><div class="item-dot nv"></div><div class="item-left"><div class="item-name">Pork Chops</div><div class="item-desc">Sautéed vegetables & mashed potato</div></div><div class="item-price">₹385</div></div>
       </div>
     </div>
 
-    <!-- ─── DESSERTS ─── -->
-    <div class="cat-section reveal" id="desserts">
+    <!-- DESSERTS MENU -->
+    <div class="menu-cat reveal" id="desserts">
       <div class="cat-header">
         <span class="cat-icon">🍰</span>
-        <div><div class="cat-title">Desserts</div><div class="cat-sub">Sweet endings to a perfect meal</div></div>
+        <div><div class="cat-title">Desserts & Sweet Treats</div></div>
         <div class="cat-divider"></div>
+      </div>
+      <div class="special-item" style="margin-bottom:24px;">
+        <span class="special-badge">📸 VIRAL</span>
+        <div class="special-name">The Selfie Ice Cream</div>
+        <div class="special-desc">Our signature Instagram-worthy dessert — camera-ready and absolutely delicious!</div>
+        <div style="position:relative;z-index:1;margin-top:12px;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--gold);">₹200</div>
+      </div>
+      <div class="special-item">
+        <span class="special-badge">🏆 SHOWSTOPPER</span>
+        <div class="special-name">Tutti Frutti Slider</div>
+        <div class="special-desc">A towering masterpiece of ice cream, fresh fruits, brownies, and sweet delights — Beanshot's most Instagrammed dessert!</div>
+        <div style="position:relative;z-index:1;margin-top:12px;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--gold);">₹375</div>
       </div>
       <div class="items-grid">
         <div class="menu-item"><div class="item-left"><div class="item-name">Caramel Custard</div></div><div class="item-price">₹100</div></div>
         <div class="menu-item"><div class="item-left"><div class="item-name">Brownie Feast</div></div><div class="item-price">₹140</div></div>
         <div class="menu-item"><div class="item-left"><div class="item-name">Choco Lava</div></div><div class="item-price">₹195</div></div>
         <div class="menu-item"><div class="item-left"><div class="item-name">Cheesecake</div></div><div class="item-price">₹150</div></div>
-        <div class="menu-item"><div class="item-left"><div class="item-name">Tiramisu Affogato</div><div class="item-desc">Italian coffee-based dessert</div></div><div class="item-price">₹225</div></div>
-        <div class="menu-item"><div class="item-left"><div class="item-name">Choco Chips Treat</div><div class="item-desc">Soften cake stuffed with choco chips, ice cream & chocolate sauce</div></div><div class="item-price">₹250</div></div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Tiramisu Affogato</div><div class="item-desc">Italian coffee-based</div></div><div class="item-price">₹225</div></div>
+        <div class="menu-item"><div class="item-left"><div class="item-name">Choco Chips Treat</div><div class="item-desc">Cake, choco chips, ice cream</div></div><div class="item-price">₹250</div></div>
         <div class="menu-item"><div class="item-left"><div class="item-name">Sundae Overload</div></div><div class="item-price">₹245</div></div>
         <div class="menu-item"><div class="item-left"><div class="item-name">Double Chocolate</div></div><div class="item-price">₹90</div></div>
-      </div>
-      <div style="margin-top:24px;">
-        <div class="special-item">
-          <span class="special-badge">📸 VIRAL</span>
-          <div class="special-name">The Selfie Ice Cream</div>
-          <div class="special-desc">Our signature selfie-worthy dessert — a camera-ready creation that's as beautiful as it is delicious!</div>
-          <div class="special-prices"><div class="special-price">₹200</div></div>
-        </div>
-        <div class="special-item">
-          <span class="special-badge">🏆 SHOWSTOPPER</span>
-          <div class="special-name">Tutti Frutti Slider</div>
-          <div class="special-desc">A towering masterpiece of ice cream, fresh fruits, brownies, and sweet delights — Beanshot's most Instagrammed dessert!</div>
-          <div class="special-prices"><div class="special-price">₹375</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA STRIP -->
-    <div class="cta-strip reveal">
-      <h3>Ready to Order? 🍽️</h3>
-      <p>Book your table, order delivery, or walk in — we're open 11:30 AM – 11:30 PM, every day.</p>
-      <div class="cta-btns">
-        <a href="https://wa.me/919875553938?text=Hey%20Beanshot%20Cafe!%20I%20would%20like%20to%20book%20a%20table%20%F0%9F%8D%BD%EF%B8%8F%0A%0AName:%20%0ANo.%20of%20people:%20%0ADate:%20%0ATime:%20%0ANote%20(if%20any):" target="_blank" class="btn-wa">📲 Book on WhatsApp</a>
-        <a href="https://www.swiggy.com/city/kolkata/the-beanshot-cafe-c-16-baishnabghata-patuli-rest163473" target="_blank" class="btn-amber">🧡 Order on Swiggy</a>
-        <a href="https://www.zomato.com/kolkata/the-beanshot-cafe-garia/order" target="_blank" class="btn-outline">❤️ Order on Zomato</a>
       </div>
     </div>
   </div>
@@ -1438,84 +744,151 @@
 
 <div class="divider"></div>
 
-<!-- BOOKING -->
-<section id="booking" style="padding:100px 0; max-width:none;">
+<!-- REVIEWS SECTION -->
+<section class="reviews-section reveal" id="reviews">
+  <div class="reviews-inner">
+    <div class="section-label">Customer Love</div>
+    <h2 class="section-title">What People <em>Say</em></h2>
+
+    <div class="rating-bar">
+      <div>
+        <div class="rating-big">4.5</div>
+        <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+        <div class="rating-count">500+ reviews</div>
+      </div>
+      <div style="margin-left:24px;">
+        <div style="font-size:.88rem;color:var(--cream);margin-bottom:4px;">Kolkata's favourite cafe since 2018</div>
+        <div style="font-size:.78rem;color:var(--text-muted);">Popular among food lovers, youngsters & families</div>
+      </div>
+      <div class="rating-platforms">
+        <div class="platform-badge"><div class="platform-name">Zomato</div><div class="platform-rating">4.5★</div></div>
+        <div class="platform-badge"><div class="platform-name">Swiggy</div><div class="platform-rating">4.4★</div></div>
+        <div class="platform-badge"><div class="platform-name">Google</div><div class="platform-rating">4.5★</div></div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">The Illegal Burger is absolutely insane! Cozy ambiance, great vibes, and the coffee latte art is stunning. Been here 5 times!</p>
+        <div class="reviewer"><div class="reviewer-avatar">👩</div><div><div class="reviewer-name">Priya S.</div><div class="reviewer-platform">Google</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">Best cafe for hangouts! Coffee is amazing, the selfie latte is too cute, perfect for dates. Definitely coming back!</p>
+        <div class="reviewer"><div class="reviewer-avatar">👨</div><div><div class="reviewer-name">Arjun M.</div><div class="reviewer-platform">Zomato</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">Tutti Frutti Slider is pure magic! Aesthetic place, great for photos. The dirty fries are loaded and delicious!</p>
+        <div class="reviewer"><div class="reviewer-avatar">🧑</div><div><div class="reviewer-name">Rhea K.</div><div class="reviewer-platform">Instagram</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">All-day breakfast is a lifesaver! English Breakfast is massive and so good. Staff is friendly. Coming back for the Biscoff!</p>
+        <div class="reviewer"><div class="reviewer-avatar">👩</div><div><div class="reviewer-name">Sneha D.</div><div class="reviewer-platform">Google</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">Popular for a reason! Food is consistently good, ambiance is on point. Late-night craving spot sorted!</p>
+        <div class="reviewer"><div class="reviewer-avatar">👦</div><div><div class="reviewer-name">Dev R.</div><div class="reviewer-platform">Swiggy</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">Good food and great desserts! Choco Lava and Cheesecake are must-haves. Cozy space, exactly what I needed!</p>
+        <div class="reviewer"><div class="reviewer-avatar">👩</div><div><div class="reviewer-name">Ananya T.</div><div class="reviewer-platform">Zomato</div></div></div>
+      </div>
+    </div>
+
+    <div class="tag-cloud">
+      <span class="tag">CozyAmbiance</span>
+      <span class="tag">GreatCoffee</span>
+      <span class="tag">PerfectForDates</span>
+      <span class="tag">IllegalBurgers</span>
+      <span class="tag">SelfieCoffee</span>
+      <span class="tag">LateNightVibes</span>
+      <span class="tag">YoungsterFavourite</span>
+      <span class="tag">AestheticCafe</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BOOKING SECTION -->
+<section class="booking-section" id="booking">
   <div class="booking-inner">
     <div class="section-label">Reserve Your Spot</div>
     <h2 class="section-title">Book a <em>Table</em></h2>
-    <p class="section-desc">Limited seats available — don't miss out on your perfect cafe experience.</p>
-    <div class="booking-grid reveal">
+    <p class="section-desc">Limited seats available — secure your perfect cafe experience now.</p>
+    <div class="booking-grid">
       <div class="booking-wa">
         <span class="wa-icon">💬</span>
-        <div class="wa-title">Book Instantly</div>
-        <div class="wa-desc">Fast, easy booking via WhatsApp. Get instant confirmation in seconds.</div>
-        <a href="https://wa.me/919875553938?text=Hey%20Beanshot%20Cafe!%20I%20would%20like%20to%20book%20a%20table%20%F0%9F%8D%BD%EF%B8%8F%0A%0AName:%20%0ANo.%20of%20people:%20%0ADate:%20%0ATime:%20%0ANote%20(if%20any):" target="_blank" class="btn-wa">📲 WhatsApp Book</a>
-        <div class="wa-note">Response within 2 minutes</div>
+        <div class="wa-title">Book Instantly on WhatsApp 🚀</div>
+        <p class="wa-desc">The fastest way to secure your table. Message us and we'll confirm in minutes!</p>
+        <a href="https://wa.me/919875553938?text=Hey%20Beanshot%20Cafe!%20I%20would%20like%20to%20book%20a%20table%20%F0%9F%8D%BD%EF%B8%8F%0A%0AName:%20%0ANo.%20of%20people:%20%0ADate:%20%0ATime:%20%0ANote%20(if%20any):" target="_blank" class="btn-wa">📲 Book on WhatsApp Now</a>
+        <p style="margin-top:16px;font-size:.78rem;color:#6a8f72;">Auto-filled — just fill in your details!</p>
         <div class="wa-phones">
           <div class="wa-phone">
             <div class="wa-phone-label">Patuli</div>
-            <div class="wa-phone-num">+91 9875553938</div>
+            <div class="wa-phone-num">+91 98755 53938</div>
           </div>
           <div class="wa-phone">
-            <div class="wa-phone-label">Lords More</div>
-            <div class="wa-phone-num">+91 9875553938</div>
+            <div class="wa-phone-label">Lords</div>
+            <div class="wa-phone-num">+91 81002 20340</div>
           </div>
         </div>
       </div>
       <div class="booking-form">
-        <div class="form-title">Or Book Here</div>
-        <div class="form-sub">Tell us a bit about your visit</div>
-        <form id="bookingForm">
+        <div class="form-title">Or Reserve via Form</div>
+        <div class="form-sub">We'll confirm within 30 minutes</div>
+        <form action="https://api.web3forms.com/submit" method="POST" id="bookingForm">
+          <input type="hidden" name="access_key" value="127fc667-7e0a-423d-abec-bf8ce62a0d8d">
+          <input type="hidden" name="subject" value="New Table Booking - Beanshot Cafe">
+          <input type="checkbox" name="botcheck" style="display:none;">
           <div class="form-row">
             <div class="form-group">
-              <label>Your Name</label>
-              <input type="text" placeholder="e.g., John Doe" required>
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Your name" required>
             </div>
             <div class="form-group">
-              <label>Phone Number</label>
-              <input type="tel" placeholder="e.g., +91 9876543210" required>
+              <label>Phone</label>
+              <input type="tel" name="phone" placeholder="+91 98765 43210" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label>Date</label>
-              <input type="date" required>
+              <input type="date" name="date" required>
             </div>
             <div class="form-group">
               <label>Time</label>
-              <input type="time" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Number of Guests</label>
-              <select required>
-                <option value="">Select...</option>
-                <option value="1">1 Guest</option>
-                <option value="2">2 Guests</option>
-                <option value="3">3 Guests</option>
-                <option value="4">4 Guests</option>
-                <option value="5">5 Guests</option>
-                <option value="6+">6+ Guests</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Occasion</label>
-              <select required>
-                <option value="">Select...</option>
-                <option value="casual">Casual Hangout</option>
-                <option value="date">Date Night</option>
-                <option value="birthday">Birthday Celebration</option>
-                <option value="group">Group Gathering</option>
-                <option value="other">Other</option>
-              </select>
+              <input type="time" name="time" required>
             </div>
           </div>
           <div class="form-group">
-            <label>Special Requests</label>
-            <textarea placeholder="Any dietary preferences, seating requests, etc."></textarea>
+            <label>Guests</label>
+            <select name="guests" required>
+              <option value="">Select guests</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3-4</option>
+              <option>5+</option>
+            </select>
           </div>
-          <button type="submit" class="btn-form">⏳ Submit Booking Request</button>
+          <div class="form-group">
+            <label>Location</label>
+            <select name="location" required>
+              <option value="">Select location</option>
+              <option>Beanshot Patuli</option>
+              <option>Beanshot Lords</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Special Note</label>
+            <textarea name="message" placeholder="Birthday? Anniversary? Any requests?"></textarea>
+          </div>
+          <button type="submit" class="btn-form">🍽️ Reserve My Table</button>
         </form>
       </div>
     </div>
@@ -1524,24 +897,22 @@
 
 <div class="divider"></div>
 
-<!-- ORDER ONLINE -->
-<section id="order" style="padding:100px 0; max-width:none;">
+<!-- ORDER SECTION -->
+<section class="order-section" id="order">
   <div class="order-inner">
-    <div class="section-label">Delivery</div>
+    <div class="section-label">Delivery & Takeaway</div>
     <h2 class="section-title">Order <em>Online</em></h2>
-    <p class="section-desc">Can't make it in? Get Beanshot delivered to your door. Available 11:30 AM – 11:00 PM daily.</p>
+    <p class="section-desc">Can't make it in? Order delivery. Available 11:30 AM – 11:00 PM daily.</p>
     <div class="order-grid reveal">
       <a href="https://www.swiggy.com/city/kolkata/the-beanshot-cafe-c-16-baishnabghata-patuli-rest163473" target="_blank" class="order-card">
-        <div class="order-logo">🧡</div>
-        <div class="order-name">Swiggy</div>
-        <div class="order-sub">Order Now</div>
-        <div class="order-arrow">→</div>
+        <span class="order-logo">🧡</span>
+        <span class="order-name">Swiggy</span>
+        <span class="order-arrow">→</span>
       </a>
       <a href="https://www.zomato.com/kolkata/the-beanshot-cafe-garia/order" target="_blank" class="order-card">
-        <div class="order-logo">❤️</div>
-        <div class="order-name">Zomato</div>
-        <div class="order-sub">Order Now</div>
-        <div class="order-arrow">→</div>
+        <span class="order-logo">❤️</span>
+        <span class="order-name">Zomato</span>
+        <span class="order-arrow">→</span>
       </a>
     </div>
   </div>
@@ -1549,46 +920,54 @@
 
 <div class="divider"></div>
 
-<!-- LOCATIONS -->
-<section id="locations">
-  <div class="section-label">Find Us</div>
-  <h2 class="section-title">Our <em>Locations</em></h2>
-  <p class="section-desc">Two vibrant spaces across Kolkata — both equally cozy, aesthetic, and unforgettable.</p>
-  <div class="locations-grid reveal">
-    <div class="location-card">
-      <div class="location-body">
-        <div class="location-name">📍 Patuli Branch</div>
-        <div class="location-detail">
-          <div class="location-icon">📮</div>
-          <div class="location-text">Baishnabghata, Patuli, Kolkata - 700045</div>
+<!-- LOCATIONS SECTION -->
+<section class="locations-section" id="locations">
+  <div class="locations-inner">
+    <div class="section-label">Find Us</div>
+    <h2 class="section-title">Our <em>Locations</em></h2>
+    <p class="section-desc">Two vibrant spaces across Kolkata. Both equally cozy, aesthetic, and unforgettable.</p>
+    <div class="locations-grid reveal">
+      <div class="location-card">
+        <div class="location-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.9!2d88.4!3d22.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027178770587bd%3A0xdd7a21e0959acdbf!2sThe%20Beanshot%20Cafe!5e0!3m2!1sen!2sin!4v1" allowfullscreen="" loading="lazy"></iframe>
         </div>
-        <div class="location-detail">
-          <div class="location-icon">📞</div>
-          <div class="location-text"><a href="tel:+919875553938">+91 9875553938</a></div>
+        <div class="location-body">
+          <div class="location-name">☕ Beanshot Patuli</div>
+          <div class="location-detail">
+            <span class="location-icon">📍</span>
+            <span class="location-text">C-16, Patuli, Opp. New 45 Bus Stand, Kolkata - 700094</span>
+          </div>
+          <div class="location-detail">
+            <span class="location-icon">📞</span>
+            <span class="location-text"><a href="tel:+919875553938">+91 98755 53938</a></span>
+          </div>
+          <div class="location-detail">
+            <span class="location-icon">🕐</span>
+            <span class="location-text">Mon–Sun: 11:30 AM – 11:30 PM</span>
+          </div>
+          <a href="https://wa.me/919875553938?text=Hey%20Beanshot%20Cafe!%20I%20would%20like%20to%20book%20a%20table%20%F0%9F%8D%BD%EF%B8%8F%0A%0AName:%20%0ANo.%20of%20people:%20%0ADate:%20%0ATime:%20%0ANote%20(if%20any):" target="_blank" class="location-badge">📲 Book via WhatsApp</a>
         </div>
-        <div class="location-detail">
-          <div class="location-icon">🕐</div>
-          <div class="location-text">11:30 AM - 11:30 PM (Daily)</div>
-        </div>
-        <div class="location-badge">Cozy Corner Table Available</div>
       </div>
-    </div>
-    <div class="location-card">
-      <div class="location-body">
-        <div class="location-name">📍 Lords More Branch</div>
-        <div class="location-detail">
-          <div class="location-icon">📮</div>
-          <div class="location-text">Lords More, Kolkata - 700089</div>
+      <div class="location-card">
+        <div class="location-map" style="background:linear-gradient(135deg,var(--brown),#1a0f07);display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:3rem">📍</span>
         </div>
-        <div class="location-detail">
-          <div class="location-icon">📞</div>
-          <div class="location-text"><a href="tel:+919875553938">+91 9875553938</a></div>
+        <div class="location-body">
+          <div class="location-name">☕ Beanshot Lords</div>
+          <div class="location-detail">
+            <span class="location-icon">📍</span>
+            <span class="location-text">166, C/416, Lords More, Lake Gardens, Kolkata - 700045</span>
+          </div>
+          <div class="location-detail">
+            <span class="location-icon">📞</span>
+            <span class="location-text"><a href="tel:+918100220340">+91 81002 20340</a></span>
+          </div>
+          <div class="location-detail">
+            <span class="location-icon">🕐</span>
+            <span class="location-text">Mon–Sun: 11:30 AM – 11:30 PM</span>
+          </div>
+          <a href="https://wa.me/918100220340?text=Hey%20Beanshot%20Lords!%20I%20would%20like%20to%20book%20a%20table%20%F0%9F%8D%BD%EF%B8%8F%0A%0AName:%20%0ANo.%20of%20people:%20%0ADate:%20%0ATime:%20%0ANote%20(if%20any):" target="_blank" class="location-badge">📲 Book via WhatsApp</a>
         </div>
-        <div class="location-detail">
-          <div class="location-icon">🕐</div>
-          <div class="location-text">11:30 AM - 11:30 PM (Daily)</div>
-        </div>
-        <div class="location-badge">Group Reservations Welcome</div>
       </div>
     </div>
   </div>
@@ -1596,33 +975,32 @@
 
 <div class="divider"></div>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-label">Get in Touch</div>
-  <h2 class="section-title">Contact <em>Us</em></h2>
-  <div class="contact-grid reveal">
-    <div class="contact-card">
-      <div class="contact-icon">📞</div>
-      <div class="contact-label">Call Us</div>
-      <div class="contact-value">
-        <a href="tel:+919875553938">+91 9875553938</a><br>
-        Available: 11:30 AM - 11:30 PM
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Contact <em>Us</em></h2>
+    <div class="contact-grid reveal">
+      <div class="contact-card">
+        <div class="contact-icon">📞</div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">
+          <a href="tel:+919875553938">+91 98755 53938</a> (Patuli)<br>
+          <a href="tel:+918100220340">+91 81002 20340</a> (Lords)
+        </div>
       </div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-icon">📧</div>
-      <div class="contact-label">Email</div>
-      <div class="contact-value">
-        <a href="mailto:hello@thebeanshotcafe.com">hello@thebeanshotcafe.com</a><br>
-        Response: Within 24 hours
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value"><a href="mailto:hello@thebeanshotcafe.com">hello@thebeanshotcafe.com</a></div>
       </div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-icon">💬</div>
-      <div class="contact-label">WhatsApp</div>
-      <div class="contact-value">
-        <a href="https://wa.me/919875553938" target="_blank">Chat on WhatsApp</a><br>
-        Response: Within 2 minutes
+      <div class="contact-card">
+        <div class="contact-icon">🕐</div>
+        <div class="contact-label">Hours</div>
+        <div class="contact-value">
+          Mon – Sun: 11:30 AM – 11:30 PM<br>
+          <span style="font-size:.82rem;color:var(--amber);">Delivery till 11:00 PM</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1630,69 +1008,64 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">☕ The Beanshot Cafe</div>
-  <p style="color:var(--text-muted);font-size:.88rem;margin-bottom:16px;">Kolkata's most aesthetic cafe since 2018</p>
+  <div class="footer-logo"><span style="font-size:1.5rem;">☕</span> The Beanshot Cafe</div>
+  <p style="color:var(--text-muted);font-size:.88rem;margin-bottom:12px;">Kolkata's most aesthetic cafe since 2018</p>
   <div class="footer-socials">
     <a href="https://www.facebook.com/thebeanshotcafe/" target="_blank" class="social-btn">f</a>
-    <a href="https://www.instagram.com/thebeanshotcafe/" target="_blank" class="social-btn">ig</a>
-    <a href="https://wa.me/919875553938" target="_blank" class="social-btn">wa</a>
+    <a href="https://www.instagram.com/thebeanshotcafe/" target="_blank" class="social-btn">📷</a>
+    <a href="https://x.com/Here_is_JUDE_/" target="_blank" class="social-btn">𝕏</a>
   </div>
-  <div class="footer-links">
-    <a href="#menu-preview">Menu</a>
-    <a href="#full-menu">Full Menu</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#locations">Locations</a>
-    <a href="#contact">Contact</a>
-    <a href="#booking">Book Table</a>
-  </div>
-  <p class="footer-copy">© 2024 The Beanshot Cafe · Patuli & Lords More, Kolkata · All rights reserved</p>
+  <div class="footer-copy">© 2024 The Beanshot Cafe · Patuli & Lords More, Kolkata · All rights reserved</div>
 </footer>
 
-<!-- FLOATING WA BUTTON -->
-<div class="wa-float-tooltip">Book Instantly on WhatsApp 🚀</div>
+<!-- FLOATING ELEMENTS -->
+<div class="wa-float-tooltip">Book on WhatsApp 🚀</div>
 <a href="https://wa.me/919875553938?text=Hey%20Beanshot%20Cafe!%20I%20would%20like%20to%20book%20a%20table%20%F0%9F%8D%BD%EF%B8%8F%0A%0AName:%20%0ANo.%20of%20people:%20%0ADate:%20%0ATime:%20%0ANote%20(if%20any):" target="_blank" class="wa-float" title="Book on WhatsApp">💬</a>
-
-<!-- STICKY BOOK BUTTON -->
-<a href="#booking" class="sticky-book">🍽️ Book a Table · Limited Seats</a>
+<a href="#booking" class="sticky-book">🍽️ Book Table · Limited Seats</a>
 
 <script>
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
-}, { threshold: 0.1 });
-reveals.forEach(el => observer.observe(el));
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
 
-// Form success
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const btn = this.querySelector('button[type=submit]');
-  btn.textContent = '✅ Booking Sent! We\'ll confirm shortly.';
-  btn.style.background = '#25d366';
-  setTimeout(() => {
-    btn.textContent = '⏳ Submit Booking Request';
-    btn.style.background = 'var(--amber)';
-    this.reset();
-  }, 3000);
-});
+  // Scroll to menu
+  function scrollToMenu(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      document.querySelectorAll('.menu-nav-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  }
 
-// Set min date to today
-const dateInputs = document.querySelectorAll('input[type=date]');
-const today = new Date().toISOString().split('T')[0];
-dateInputs.forEach(d => d.setAttribute('min', today));
-
-// Active menu nav
-const sections = document.querySelectorAll('.cat-section[id]');
-const navBtns = document.querySelectorAll('.menu-nav-btn');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 160) current = s.id;
+  // Menu nav active on scroll
+  const sections = document.querySelectorAll('.menu-cat[id]');
+  const navBtns = document.querySelectorAll('.menu-nav-btn');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 200) current = s.id;
+    });
+    navBtns.forEach(b => {
+      const id = b.getAttribute('onclick').match(/scrollToMenu\('(.+)'\)/)?.[1];
+      b.classList.toggle('active', id === current);
+    });
   });
-  navBtns.forEach(b => {
-    b.classList.toggle('active', b.getAttribute('href') === '#' + current);
+
+  // Form submission
+  document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    const btn = this.querySelector('button[type=submit]');
+    btn.textContent = '✅ Booking Sent! We\'ll confirm shortly.';
+    btn.style.background = '#25d366';
   });
-});
+
+  // Set min date
+  const dateInputs = document.querySelectorAll('input[type=date]');
+  const today = new Date().toISOString().split('T')[0];
+  dateInputs.forEach(d => d.setAttribute('min', today));
 </script>
 </body>
 </html>
